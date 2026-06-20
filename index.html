@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dicle English · learn · practice · speak</title>
+<meta name="description" content="Gerçek hayattan İngilizce ve sade gramer. learn · practice · speak.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0A0918">
+
+<style>
+  :root{
+    --bg:#0A0918;
+    --panel:#12112A;
+    --line-dark:#1E1C3A;
+    --purple-deep:#3D3A8C;
+    --purple:#6663B8;
+    --purple-light:#9896D4;
+    --text:#EEEDF8;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Epilogue',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* subtle grain / glow atmosphere */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background:
+      radial-gradient(900px 500px at 12% -5%, rgba(102,99,184,0.14), transparent 60%),
+      radial-gradient(700px 500px at 100% 100%, rgba(61,58,140,0.10), transparent 55%);
+    pointer-events:none;z-index:0;
+  }
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1}
+
+  /* ===== ICON (geometrik arrow motifi) ===== */
+  .icon{display:inline-block;vertical-align:middle}
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(10,9,24,0.72);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .wm{display:flex;flex-direction:column;line-height:1}
+  .brand .wm b{font-weight:800;font-size:24px;letter-spacing:-1px}
+  .brand .wm span{font-weight:300;font-size:9px;letter-spacing:6px;color:var(--purple);margin-top:3px}
+  nav.links{display:flex;align-items:center;gap:34px}
+  nav.links a{font-size:14px;font-weight:500;color:var(--purple-light);transition:color .2s}
+  nav.links a:hover{color:var(--text)}
+  .nav-cta{
+    font-size:13px;font-weight:700;letter-spacing:.5px;
+    padding:10px 20px;border:1px solid var(--purple);border-radius:2px;color:var(--text);
+    transition:background .25s,color .25s;
+  }
+  .nav-cta:hover{background:var(--purple);color:#0A0918}
+  .burger{display:none;background:none;border:0;cursor:pointer;color:var(--text)}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;padding:120px 0 130px;overflow:hidden}
+  .hero .diag{
+    position:absolute;top:0;right:0;width:46%;height:100%;
+    background:var(--panel);
+    clip-path:polygon(28% 0,100% 0,100% 100%,0 100%);
+    z-index:0;
+  }
+  .hero .diag2{
+    position:absolute;top:0;right:0;width:46%;height:100%;
+    border-left:1px solid var(--line-dark);
+    clip-path:polygon(28% 0,29% 0,1% 100%,0 100%);
+  }
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  .eyebrow{font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--purple);margin-bottom:26px;font-weight:500}
+  .hero h1{font-weight:800;font-size:clamp(48px,7vw,90px);line-height:.96;letter-spacing:-3px}
+  .hero h1 .dot{display:inline-block;width:13px;height:13px;border-radius:50%;background:var(--purple);vertical-align:middle;margin:0 6px 16px}
+  .hero .sub{margin-top:28px;font-size:clamp(20px,2.4vw,30px);font-weight:300}
+  .hero .sub i{font-style:italic;color:var(--purple-light)}
+  .hero .amp{color:var(--purple-deep)}
+  .hero-cta{margin-top:42px;display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:15px;font-weight:700;letter-spacing:.3px;
+    padding:15px 28px;border-radius:2px;transition:transform .2s,background .25s,color .25s,border-color .25s;
+  }
+  .btn-primary{background:var(--purple);color:#0A0918}
+  .btn-primary:hover{background:var(--purple-light);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line-dark);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--purple);transform:translateY(-2px)}
+  .hero-deco{display:flex;justify-content:center;align-items:center}
+  .hero-deco .big-icon{filter:drop-shadow(0 20px 50px rgba(102,99,184,.25))}
+
+  /* reveal anim */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:96px 0;position:relative}
+  .sec-label{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:22px}
+  .sec-label::before{content:"";width:34px;height:1px;background:var(--purple-deep)}
+  h2.sec-title{font-weight:800;font-size:clamp(32px,4.4vw,52px);letter-spacing:-1.5px;line-height:1.05;max-width:680px}
+
+  /* ===== ABOUT ===== */
+  #about{background:linear-gradient(180deg,transparent,rgba(18,17,42,.45),transparent)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:40px}
+  .about-grid p{font-size:18px;font-weight:300;color:#cfcdec;margin-bottom:20px}
+  .about-grid p strong{font-weight:700;color:var(--text)}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
+  .stat{background:var(--panel);padding:30px 26px}
+  .stat b{display:block;font-size:27px;font-weight:800;letter-spacing:-0.5px;line-height:1.1}
+  .stat span{font-size:13px;color:var(--purple-light);font-weight:300;margin-top:8px;display:block}
+
+  /* ===== PILLARS / DERSLER ===== */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+  .pillar{
+    background:var(--panel);border:1px solid var(--line-dark);padding:38px 32px;border-radius:3px;
+    position:relative;overflow:hidden;transition:border-color .3s,transform .3s;
+  }
+  .pillar::after{content:"";position:absolute;top:0;right:0;width:70px;height:70px;background:var(--line-dark);clip-path:polygon(100% 0,0 0,100% 100%);transition:background .3s}
+  .pillar:hover{border-color:var(--purple);transform:translateY(-4px)}
+  .pillar:hover::after{background:var(--purple-deep)}
+  .pillar .num{font-size:13px;color:var(--purple);letter-spacing:3px;font-weight:500}
+  .pillar h3{font-weight:800;font-size:30px;letter-spacing:-1px;margin:14px 0 12px}
+  .pillar p{font-size:15px;font-weight:300;color:#bfbde0}
+
+  /* ===== BLOG ===== */
+  #blog{background:var(--panel);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+  .blog-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+  .post{
+    background:var(--bg);border:1px solid var(--line-dark);border-radius:3px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .3s,border-color .3s;
+  }
+  .post:hover{transform:translateY(-5px);border-color:var(--purple)}
+  .post .thumb{height:150px;position:relative;background:var(--panel);border-bottom:1px solid var(--line-dark);overflow:hidden}
+  .post .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .post.soon{opacity:.5}
+  .post.soon .read{color:var(--purple-deep)}
+  a.post-link{display:block;color:inherit;text-decoration:none}
+  .post .thumb .g1{position:absolute;inset:0;clip-path:polygon(0 0,55% 0,0 100%);background:var(--line-dark)}
+  .post .thumb .ic{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+  .post .body{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1}
+  .post .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--purple);font-weight:500}
+  .post h3{font-weight:700;font-size:20px;letter-spacing:-.5px;margin:10px 0 10px;line-height:1.25}
+  .post p{font-size:14px;font-weight:300;color:#a9a7cf;flex:1}
+  .post .meta{margin-top:18px;font-size:12px;color:var(--purple-deep);display:flex;justify-content:space-between;align-items:center}
+  .post .read{color:var(--purple-light);font-weight:500}
+  .blog-foot{margin-top:42px;text-align:center}
+
+  /* ===== FOLLOW / SOCIAL CTA ===== */
+  #follow{text-align:center;overflow:hidden}
+  .follow-card{
+    position:relative;background:var(--panel);border:1px solid var(--line-dark);border-radius:4px;
+    padding:74px 32px;overflow:hidden;
+  }
+  .follow-card .corner-tl{position:absolute;top:0;left:0;width:120px;height:120px;background:var(--line-dark);clip-path:polygon(0 0,100% 0,0 100%)}
+  .follow-card .corner-br{position:absolute;bottom:0;right:0;width:120px;height:120px;background:var(--purple-deep);opacity:.5;clip-path:polygon(100% 100%,0 100%,100% 0)}
+  .follow-card .eyebrow{margin-bottom:18px}
+  .follow-card h2{font-weight:800;font-size:clamp(30px,4.5vw,48px);letter-spacing:-1.5px;position:relative}
+  .follow-card p{font-size:18px;font-weight:300;color:#bfbde0;max-width:520px;margin:18px auto 0;position:relative}
+  .socials{margin-top:40px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative}
+  .soc{
+    display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;
+    padding:13px 22px;border:1px solid var(--line-dark);border-radius:2px;color:var(--text);
+    transition:background .25s,border-color .25s,transform .2s;
+  }
+  .soc:hover{border-color:var(--purple);background:rgba(102,99,184,.12);transform:translateY(-2px)}
+  .soc svg{width:18px;height:18px;fill:var(--purple-light)}
+  .handle{margin-top:30px;font-size:14px;letter-spacing:4px;color:var(--purple);font-weight:300;position:relative}
+  .contact-mail{position:relative;display:inline-flex;align-items:center;gap:9px;margin-top:30px;font-size:15px;font-weight:500;color:var(--text);border-bottom:1px solid var(--line-dark);padding-bottom:4px;transition:border-color .25s,color .25s}
+  .contact-mail:hover{border-color:var(--purple);color:var(--purple-light)}
+  .contact-mail svg{width:17px;height:17px;fill:var(--purple-light)}
+
+  /* ===== FOOTER ===== */
+  footer{border-top:1px solid var(--line-dark);padding:46px 0 40px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot-inner .brand .wm b{font-size:20px}
+  footer .fnav{display:flex;gap:26px;font-size:13px;color:var(--purple-light)}
+  footer .fnav a:hover{color:var(--text)}
+  footer .copy{font-size:12px;color:var(--purple-deep);margin-top:26px;letter-spacing:.5px}
+
+  /* ===== RANDEVU / DERS AL ===== */
+  #randevu{background:linear-gradient(180deg,transparent,rgba(18,17,42,.4),transparent)}
+  .booking{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:46px;align-items:stretch}
+  .bk-panel{background:var(--panel);border:1px solid var(--line-dark);border-radius:4px;padding:30px}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .cal-head .m{font-size:19px;font-weight:700;letter-spacing:-.3px}
+  .cal-nav{display:flex;gap:8px}
+  .cal-nav button{width:34px;height:34px;border:1px solid var(--line-dark);background:transparent;color:var(--text);border-radius:2px;cursor:pointer;font-size:16px;transition:border-color .2s,background .2s}
+  .cal-nav button:hover{border-color:var(--purple);background:rgba(102,99,184,.1)}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .cal-grid .dow{font-size:11px;text-align:center;color:var(--purple-deep);font-weight:500;padding:4px 0;letter-spacing:.5px}
+  .cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:3px;cursor:pointer;border:1px solid transparent;transition:background .15s,border-color .15s,color .15s}
+  .cal-day:hover:not(.disabled){background:rgba(102,99,184,.14);border-color:var(--purple)}
+  .cal-day.disabled{color:#2c2a4a;cursor:not-allowed}
+  .cal-day.empty{cursor:default}
+  .cal-day.selected{background:var(--purple);color:#0A0918;font-weight:700}
+  .bk-side h3{font-size:18px;font-weight:700;margin-bottom:6px}
+  .bk-side .hint{font-size:13px;color:var(--purple-light);font-weight:300;margin-bottom:20px}
+  .slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+  .slot{padding:10px 0;text-align:center;font-size:14px;border:1px solid var(--line-dark);border-radius:2px;background:transparent;color:var(--text);cursor:pointer;transition:border-color .2s,background .2s}
+  .slot:hover{border-color:var(--purple)}
+  .slot.selected{background:var(--purple);color:#0A0918;font-weight:700;border-color:var(--purple)}
+  .bk-field{margin-bottom:14px}
+  .bk-field label{display:block;font-size:12px;letter-spacing:1px;color:var(--purple-light);margin-bottom:6px;text-transform:uppercase}
+  .bk-field input,.bk-field select{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--line-dark);border-radius:2px;color:var(--text);font-family:'Epilogue',sans-serif;font-size:15px}
+  .bk-field input:focus,.bk-field select:focus{outline:none;border-color:var(--purple)}
+  .bk-field select{appearance:none;cursor:pointer}
+  .bk-summary{font-size:14px;color:var(--purple-light);margin:6px 0 16px;min-height:20px}
+  .bk-summary b{color:var(--text)}
+  #bkConfirm{width:100%;justify-content:center;border:0;cursor:pointer;font-family:'Epilogue',sans-serif}
+  #bkConfirm:disabled{opacity:.4;cursor:not-allowed;transform:none}
+  .bk-note{font-size:12px;color:var(--purple-deep);margin-top:14px;text-align:center;font-weight:300}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:880px){
+    nav.links{display:none}
+    .burger{display:block}
+    .hero{padding:80px 0 90px}
+    .hero .diag,.hero .diag2{display:none}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-deco{display:none}
+    .about-grid,.pillars,.blog-grid{grid-template-columns:1fr}
+    .blog-grid{gap:20px}
+    .booking{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){
+    .container{padding:0 20px}
+    .stats{grid-template-columns:1fr 1fr}
+    .follow-card{padding:54px 22px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top" aria-label="Dicle English">
+      <svg class="icon" width="34" height="40" viewBox="0 0 96 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="0,110 0,0 58,0 96,55 58,110" fill="#EEEDF8"/>
+        <polygon points="0,0 58,0 96,55" fill="#6663B8"/>
+      </svg>
+      <span class="wm"><b>Dicle</b><span>ENGLISH</span></span>
+    </a>
+    <nav class="links">
+      <a href="#about">Hakkında</a>
+      <a href="#dersler">Nasıl Çalışıyoruz</a>
+      <a href="#randevu">Tanışalım</a>
+      <a href="#blog">Blog</a>
+      <a href="#follow">İletişim &amp; Topluluk</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="diag"></div>
+  <div class="diag2"></div>
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow reveal" style="text-transform:none;letter-spacing:3px">diclenglish</div>
+      <h1 class="reveal">learn<span class="dot"></span>practice<span class="dot"></span>speak</h1>
+      <p class="sub reveal"><i>real-life English</i> <span class="amp">&amp;</span> <i>simple grammar</i></p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-primary" href="#follow">Sosyal Medyada Takip Et</a>
+        <a class="btn btn-ghost" href="#blog">Blog'u Keşfet</a>
+      </div>
+    </div>
+    <div class="hero-deco reveal">
+      <svg class="big-icon" width="240" height="275" viewBox="0 0 96 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="0,110 0,0 58,0 96,55 58,110" fill="#EEEDF8"/>
+        <polygon points="0,0 58,0 96,55" fill="#6663B8"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container">
+    <div class="sec-label reveal">Hakkında</div>
+    <h2 class="sec-title reveal">Gerçek hayattan İngilizce.</h2>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>İngilizce öğrenmek, çözülemez bir mesele değil. Doğru yöntem ve gerçek pratikle herkes öğrenebilir.</p>
+        <p>Bir dil yalnızca çalışılarak değil, kullanılarak edinilir. Kurallar ezberlenebilir; ama dil ancak konuşuldukça, dinlendikçe ve hayatın içinde deneyimlendikçe gerçek anlamda yerleşir. Bu yüzden iletişim ve sosyal etkileşim, öğrenmenin merkezindedir.</p>
+        <p>Mesele bir sınavı geçmek ya da tek bir konuyu bitirmek değil; dili düşünmeden, refleksle kullanabilmektir. İngilizceyi bir çaba olmaktan çıkarıp hayatın doğal bir parçası hâline getirmek.</p>
+        <p>Dicle English bu vizyonla var: bağımlı kılan değil, özgürleştiren bir öğrenme.</p>
+        <a href="hakkinda.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-size:15px;font-weight:600;color:var(--purple-light);transition:color .2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--purple-light)'">Daha fazlası — Hakkımda →</a>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><b>Kişiye Özel</b><span>size göre tasarlanan program</span></div>
+        <div class="stat"><b>A1–C1</b><span>her seviyeye uygun</span></div>
+        <div class="stat"><b>Sınav Hazırlığı</b><span>hedefe yönelik çalışma</span></div>
+        <div class="stat"><b>Konuşma Odaklı</b><span>akıcılık ve öz güven</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILLARS / DERSLER ============ -->
+<section id="dersler">
+  <div class="container">
+    <div class="sec-label reveal">Yaklaşım</div>
+    <h2 class="sec-title reveal">Üç adımda akıcı İngilizce.</h2>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="num">01 — LEARN</div>
+        <h3>Öğren</h3>
+        <p>Dili kurallar yığını olarak değil, gerçek hayatta işleyen bir mantık olarak ele alıyoruz. Ezber değil, kavrayış.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="num">02 — PRACTICE</div>
+        <h3>Pratik Yap</h3>
+        <p>Öğrendiklerinizi gerçek diyaloglar ve hedefe yönelik alıştırmalarla birlikte pekiştiriyoruz. Kalıcılığın anahtarı, doğru tekrar.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="num">03 — SPEAK</div>
+        <h3>Konuş</h3>
+        <p>Dili öz güvenle kullanmaya başlamanız için hata kaygısını birlikte geride bırakıyoruz. Nihai hedef: akıcılık.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RANDEVU / DERS AL ============ -->
+<section id="randevu">
+  <div class="container">
+    <div class="sec-label reveal">Tanışalım</div>
+    <h2 class="sec-title reveal">Başlamadan önce tanışalım.</h2>
+    <p class="reveal" style="font-size:18px;font-weight:300;color:#bfbde0;max-width:580px;margin-top:14px">Ücretsiz tanışma görüşmesinde hedeflerini dinler, sana en uygun yolu birlikte planlarız.</p>
+    <div class="booking-embed reveal" style="margin-top:40px;max-width:900px;background:#F4F3FB;border:1px solid var(--line-dark);border-radius:12px;padding:10px;box-shadow:0 18px 50px rgba(0,0,0,.25)">
+      <!-- Google Calendar Appointment Scheduling begin -->
+      <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3tYYjnt_MhR-TaJusPT21PIF2J5Qv4PIiSGRTCeSABLmsmhN2PeglasOswd4QlRYb_xOZzmmA3?gv=true" style="border:0;border-radius:8px;display:block;background:#fff" width="100%" height="640" frameborder="0"></iframe>
+      <!-- end Google Calendar Appointment Scheduling -->
+    </div>
+    <div class="reveal" style="margin-top:22px;font-size:14px;color:var(--purple-deep);font-weight:300">
+      Uygun bir saat bulamazsan <a href="mailto:dicledenizmenglish@gmail.com" style="color:var(--purple-light)">bana yazabilirsin</a>.
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG ============ -->
+<section id="blog">
+  <div class="container">
+    <div class="blog-head">
+      <div>
+        <div class="sec-label reveal">Blog</div>
+        <h2 class="sec-title reveal">Yazılar &amp; İngilizce ipuçları</h2>
+      </div>
+    </div>
+    <div class="blog-grid">
+
+      <a class="post-link reveal" href="blog-ornek.html">
+        <article class="post" style="height:100%">
+          <div class="thumb"><img src="blog-cover-ornek.jpg" alt="Akıcı konuşmanın yolu"></div>
+          <div class="body">
+            <span class="tag">Konuşma &amp; Akıcılık</span>
+            <h3>Akıcı konuşmanın yolu: mükemmeliyetçiliği bırakmak</h3>
+            <p>İngilizce konuşmanın önündeki en büyük engel çoğu zaman bilgi değil, hata yapma korkusudur. Peki bu nasıl aşılır?</p>
+            <div class="meta"><span>6 dk okuma</span><span class="read">Oku →</span></div>
+          </div>
+        </article>
+      </a>
+
+      <article class="post soon reveal">
+        <div class="thumb"><div class="g1"></div>
+          <svg class="ic" width="40" height="46" viewBox="0 0 96 110"><polygon points="0,110 0,0 58,0 96,55 58,110" fill="#1E1C3A"/><polygon points="0,0 58,0 96,55" fill="#6663B8"/></svg>
+        </div>
+        <div class="body">
+          <span class="tag">Kelime &amp; Günlük İngilizce</span>
+          <h3>Yakında…</h3>
+          <p>Günlük hayatta sık kullanılan kelimeler ve kalıplar üzerine yeni yazılar yolda.</p>
+          <div class="meta"><span>Çok yakında</span><span class="read">Yakında</span></div>
+        </div>
+      </article>
+
+      <article class="post soon reveal">
+        <div class="thumb"><div class="g1"></div>
+          <svg class="ic" width="40" height="46" viewBox="0 0 96 110"><polygon points="0,110 0,0 58,0 96,55 58,110" fill="#1E1C3A"/><polygon points="0,0 58,0 96,55" fill="#6663B8"/></svg>
+        </div>
+        <div class="body">
+          <span class="tag">Konuşma &amp; Akıcılık</span>
+          <h3>Yakında…</h3>
+          <p>Konuşma kaygısını aşmak ve akıcılığı geliştirmek için pratik ipuçları çok yakında.</p>
+          <div class="meta"><span>Çok yakında</span><span class="read">Yakında</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOLLOW / SOCIAL ============ -->
+<section id="follow">
+  <div class="container">
+    <div class="follow-card reveal">
+      <div class="corner-tl"></div>
+      <div class="corner-br"></div>
+      <div class="eyebrow">Topluluğa Katıl</div>
+      <h2>Her gün yeni içerik için takip et</h2>
+      <p>İngilizce ipuçları, mini dersler ve günlük pratikler için sosyal medyada bana katıl. Öğrenmeye birlikte devam edelim.</p>
+      <div class="socials">
+        <a class="soc" href="https://instagram.com/diclenglish" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5 0-4.74.07-.9.04-1.38.2-1.7.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.12.32-.28.8-.32 1.7C3.42 8.5 3.4 8.85 3.4 12s0 3.5.07 4.74c.04.9.2 1.38.32 1.7.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.12.8.28 1.7.32 1.24.07 1.59.07 4.74.07s3.5 0 4.74-.07c.9-.04 1.38-.2 1.7-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.12-.32.28-.8.32-1.7.07-1.24.07-1.59.07-4.74s0-3.5-.07-4.74c-.04-.9-.2-1.38-.32-1.7a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.12-.8-.28-1.7-.32C15.5 4 15.15 4 12 4zm0 3.06A4.94 4.94 0 1 1 12 17a4.94 4.94 0 0 1 0-9.88zm0 8.14A3.2 3.2 0 1 0 12 8.8a3.2 3.2 0 0 0 0 6.4zm6.3-8.34a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
+          Instagram
+        </a>
+        <a class="soc" href="https://tiktok.com/@diclenglish" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.6 5.82c-.9-.6-1.5-1.55-1.7-2.62V2.7h-2.86v11.5c0 1.37-1.1 2.48-2.47 2.48a2.48 2.48 0 0 1 0-4.96c.26 0 .5.04.74.12V8.9a5.34 5.34 0 1 0 4.6 5.29V8.4c1.05.76 2.34 1.2 3.7 1.2V6.74c-.74 0-1.42-.22-2-.6a4.6 4.6 0 0 1-.01-.32z"/></svg>
+          TikTok
+        </a>
+        <a class="soc" href="https://youtube.com/@diclenglish" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.6A3 3 0 0 0 1 7.2 31.4 31.4 0 0 0 .5 12 31.4 31.4 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.6 8.9.6 8.9.6s7 0 8.9-.6a3 3 0 0 0 2.1-2.1c.4-1.58.5-3.2.5-4.8s-.1-3.22-.5-4.8zM9.75 15.5v-7l6 3.5z"/></svg>
+          YouTube
+        </a>
+        <a class="soc" href="https://linkedin.com/in/dicledenizmart" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05 4.02 0 4.76 2.65 4.76 6.1V21h-4v-5.4c0-1.3 0-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21H10z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+      <a class="contact-mail" href="mailto:dicledenizmenglish@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.1L4.2 7H3.9v.5l8.1 5.4 8.1-5.4V7h-.3L12 12.1zM4 9.2V17h16V9.2l-8 5.3-8-5.3z"/></svg>
+        dicledenizmenglish@gmail.com
+      </a>
+      <div class="handle">@diclenglish</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container foot-inner">
+    <a class="brand" href="#top">
+      <svg class="icon" width="28" height="33" viewBox="0 0 96 110"><polygon points="0,110 0,0 58,0 96,55 58,110" fill="#EEEDF8"/><polygon points="0,0 58,0 96,55" fill="#6663B8"/></svg>
+      <span class="wm"><b>Dicle</b><span>ENGLISH</span></span>
+    </a>
+    <nav class="fnav">
+      <a href="#about">Hakkında</a>
+      <a href="#dersler">Nasıl Çalışıyoruz</a>
+      <a href="#randevu">Tanışalım</a>
+      <a href="#blog">Blog</a>
+      <a href="#follow">İletişim &amp; Topluluk</a>
+      <a href="gizlilik.html">Gizlilik &amp; KVKK</a>
+    </nav>
+  </div>
+  <div class="container"><div class="copy">© 2026 Dicle English · learn · practice · speak</div></div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(i%4*0.08)+'s';
+    io.observe(el);
+  });
+
+  /* ===== Ders Al · takvim ===== */
+  (function(){
+
+    /* ============================================================
+       ⚙️  AYARLAR — takvimi buradan yönetebilirsin.
+       Sadece aşağıdaki değerleri değiştir; gerisi kendiliğinden ayarlanır.
+       ============================================================ */
+    const AYARLAR = {
+      // Talebin gönderileceği e-posta
+      email: "dicledenizmenglish@gmail.com",
+
+      // Ders verdiğin günler  →  1=Pazartesi, 2=Salı, 3=Çarşamba,
+      // 4=Perşembe, 5=Cuma, 6=Cumartesi, 0=Pazar
+      dersGunleri: [1, 2, 3, 4, 5],
+
+      // Ders saatleri (sabit). İstediğini ekle/çıkar.
+      saatler: ["10:00", "11:00", "14:00", "16:00", "18:00", "20:00"],
+
+      // Kapatmak istediğin tarihler (tatil, izin vb.)
+      // Biçim: "YYYY-AA-GG"  →  örn. "2026-06-15"
+      kapaliGunler: []
+    };
+    /* ============================================================ */
+
+    const MONTHS=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+    const DOWS=["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"];
+    const DAYNAMES=["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+    const EMAIL=AYARLAR.email;
+    const isoKey=(d)=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+
+    const grid=document.getElementById('calGrid');
+    const label=document.getElementById('calMonth');
+    const prev=document.getElementById('calPrev');
+    const next=document.getElementById('calNext');
+    const slotsWrap=document.getElementById('slots');
+    const summary=document.getElementById('bkSummary');
+    const confirm=document.getElementById('bkConfirm');
+    const nameEl=document.getElementById('bkName');
+    const levelEl=document.getElementById('bkLevel');
+    if(!grid) return;
+
+    const today=new Date(); today.setHours(0,0,0,0);
+    const curMonth=new Date(today.getFullYear(),today.getMonth(),1);
+    let view=new Date(curMonth);
+    let selDate=null, selSlot=null;
+
+    function render(){
+      label.textContent=MONTHS[view.getMonth()]+" "+view.getFullYear();
+      prev.disabled = (view.getFullYear()===curMonth.getFullYear() && view.getMonth()===curMonth.getMonth());
+      prev.style.opacity = prev.disabled ? .3 : 1;
+      grid.innerHTML='';
+      DOWS.forEach(d=>{const c=document.createElement('div');c.className='dow';c.textContent=d;grid.appendChild(c);});
+      const first=new Date(view.getFullYear(),view.getMonth(),1);
+      const offset=(first.getDay()+6)%7;
+      const daysInMonth=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+      for(let i=0;i<offset;i++){const e=document.createElement('div');e.className='cal-day empty';grid.appendChild(e);}
+      for(let d=1;d<=daysInMonth;d++){
+        const cell=document.createElement('div');
+        cell.className='cal-day';cell.textContent=d;
+        const date=new Date(view.getFullYear(),view.getMonth(),d);
+        const acikGun=AYARLAR.dersGunleri.includes(date.getDay());
+        const kapali=AYARLAR.kapaliGunler.includes(isoKey(date));
+        const past=date<today;
+        if(!acikGun||kapali||past){cell.classList.add('disabled');}
+        else{
+          if(selDate&&date.getTime()===selDate.getTime())cell.classList.add('selected');
+          cell.addEventListener('click',()=>{selDate=date;render();update();});
+        }
+        grid.appendChild(cell);
+      }
+    }
+    function fmt(date){return date.getDate()+" "+MONTHS[date.getMonth()]+" "+DAYNAMES[date.getDay()];}
+    function update(){
+      if(selDate&&selSlot){
+        summary.innerHTML="Seçilen: <b>"+fmt(selDate)+", "+selSlot+"</b>";
+        confirm.removeAttribute('aria-disabled');confirm.style.opacity=1;confirm.style.pointerEvents='auto';
+      }else{
+        summary.textContent= selDate ? fmt(selDate)+" — şimdi bir saat seç." : "Bir gün ve saat seçtiğinde burada görünecek.";
+        confirm.setAttribute('aria-disabled','true');confirm.style.opacity=.4;confirm.style.pointerEvents='none';
+      }
+    }
+    // Saat butonlarını ayarlardaki sabit saatlerden üret
+    AYARLAR.saatler.forEach(t=>{
+      const b=document.createElement('button');
+      b.type='button';b.className='slot';b.textContent=t;
+      slotsWrap.appendChild(b);
+    });
+    slotsWrap.querySelectorAll('.slot').forEach(s=>{
+      s.addEventListener('click',()=>{
+        slotsWrap.querySelectorAll('.slot').forEach(x=>x.classList.remove('selected'));
+        s.classList.add('selected');selSlot=s.textContent.trim();update();
+      });
+    });
+    prev.addEventListener('click',()=>{if(prev.disabled)return;view.setMonth(view.getMonth()-1);render();});
+    next.addEventListener('click',()=>{view.setMonth(view.getMonth()+1);render();});
+    confirm.addEventListener('click',(e)=>{
+      e.preventDefault();
+      if(!selDate||!selSlot)return;
+      const name=(nameEl.value||"").trim();
+      const level=levelEl.value;
+      const subject="Tanışma Görüşmesi Talebi — "+fmt(selDate)+" "+selSlot;
+      const body="Merhaba,\n\n"+(name?("Adım "+name+".\n"):"")+"Seviye: "+level+".\nTanışma görüşmesi için tercih ettiğim zaman: "+fmt(selDate)+", saat "+selSlot+".\n\nTeşekkürler!";
+      window.location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+    });
+
+    render();update();
+  })();
+</script>
+
+</body>
+</html>

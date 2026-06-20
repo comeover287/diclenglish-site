@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hakkımda · Dicle English</title>
+<meta name="description" content="Dicle Deniz Mart — İngilizce öğretmeni. Gerçek hayattan İngilizce, kişiye özel programlar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0A0918">
+
+<style>
+  :root{
+    --bg:#0A0918;
+    --panel:#12112A;
+    --line-dark:#1E1C3A;
+    --purple-deep:#3D3A8C;
+    --purple:#6663B8;
+    --purple-light:#9896D4;
+    --text:#EEEDF8;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Epilogue',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* subtle grain / glow atmosphere */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background:
+      radial-gradient(900px 500px at 12% -5%, rgba(102,99,184,0.14), transparent 60%),
+      radial-gradient(700px 500px at 100% 100%, rgba(61,58,140,0.10), transparent 55%);
+    pointer-events:none;z-index:0;
+  }
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1}
+
+  /* ===== ICON (geometrik arrow motifi) ===== */
+  .icon{display:inline-block;vertical-align:middle}
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(10,9,24,0.72);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .wm{display:flex;flex-direction:column;line-height:1}
+  .brand .wm b{font-weight:800;font-size:24px;letter-spacing:-1px}
+  .brand .wm span{font-weight:300;font-size:9px;letter-spacing:6px;color:var(--purple);margin-top:3px}
+  nav.links{display:flex;align-items:center;gap:34px}
+  nav.links a{font-size:14px;font-weight:500;color:var(--purple-light);transition:color .2s}
+  nav.links a:hover{color:var(--text)}
+  .nav-cta{
+    font-size:13px;font-weight:700;letter-spacing:.5px;
+    padding:10px 20px;border:1px solid var(--purple);border-radius:2px;color:var(--text);
+    transition:background .25s,color .25s;
+  }
+  .nav-cta:hover{background:var(--purple);color:#0A0918}
+  .burger{display:none;background:none;border:0;cursor:pointer;color:var(--text)}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;padding:120px 0 130px;overflow:hidden}
+  .hero .diag{
+    position:absolute;top:0;right:0;width:46%;height:100%;
+    background:var(--panel);
+    clip-path:polygon(28% 0,100% 0,100% 100%,0 100%);
+    z-index:0;
+  }
+  .hero .diag2{
+    position:absolute;top:0;right:0;width:46%;height:100%;
+    border-left:1px solid var(--line-dark);
+    clip-path:polygon(28% 0,29% 0,1% 100%,0 100%);
+  }
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  .eyebrow{font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--purple);margin-bottom:26px;font-weight:500}
+  .hero h1{font-weight:800;font-size:clamp(48px,7vw,90px);line-height:.96;letter-spacing:-3px}
+  .hero h1 .dot{display:inline-block;width:13px;height:13px;border-radius:50%;background:var(--purple);vertical-align:middle;margin:0 6px 16px}
+  .hero .sub{margin-top:28px;font-size:clamp(20px,2.4vw,30px);font-weight:300}
+  .hero .sub i{font-style:italic;color:var(--purple-light)}
+  .hero .amp{color:var(--purple-deep)}
+  .hero-cta{margin-top:42px;display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:15px;font-weight:700;letter-spacing:.3px;
+    padding:15px 28px;border-radius:2px;transition:transform .2s,background .25s,color .25s,border-color .25s;
+  }
+  .btn-primary{background:var(--purple);color:#0A0918}
+  .btn-primary:hover{background:var(--purple-light);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line-dark);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--purple);transform:translateY(-2px)}
+  .hero-deco{display:flex;justify-content:center;align-items:center}
+  .hero-deco .big-icon{filter:drop-shadow(0 20px 50px rgba(102,99,184,.25))}
+
+  /* reveal anim */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:96px 0;position:relative}
+  .sec-label{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:22px}
+  .sec-label::before{content:"";width:34px;height:1px;background:var(--purple-deep)}
+  h2.sec-title{font-weight:800;font-size:clamp(32px,4.4vw,52px);letter-spacing:-1.5px;line-height:1.05;max-width:680px}
+
+  /* ===== ABOUT ===== */
+  #about{background:linear-gradient(180deg,transparent,rgba(18,17,42,.45),transparent)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:40px}
+  .about-grid p{font-size:18px;font-weight:300;color:#cfcdec;margin-bottom:20px}
+  .about-grid p strong{font-weight:700;color:var(--text)}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
+  .stat{background:var(--panel);padding:30px 26px}
+  .stat b{display:block;font-size:27px;font-weight:800;letter-spacing:-0.5px;line-height:1.1}
+  .stat span{font-size:13px;color:var(--purple-light);font-weight:300;margin-top:8px;display:block}
+
+  /* ===== PILLARS / DERSLER ===== */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+  .pillar{
+    background:var(--panel);border:1px solid var(--line-dark);padding:38px 32px;border-radius:3px;
+    position:relative;overflow:hidden;transition:border-color .3s,transform .3s;
+  }
+  .pillar::after{content:"";position:absolute;top:0;right:0;width:70px;height:70px;background:var(--line-dark);clip-path:polygon(100% 0,0 0,100% 100%);transition:background .3s}
+  .pillar:hover{border-color:var(--purple);transform:translateY(-4px)}
+  .pillar:hover::after{background:var(--purple-deep)}
+  .pillar .num{font-size:13px;color:var(--purple);letter-spacing:3px;font-weight:500}
+  .pillar h3{font-weight:800;font-size:30px;letter-spacing:-1px;margin:14px 0 12px}
+  .pillar p{font-size:15px;font-weight:300;color:#bfbde0}
+
+  /* ===== BLOG ===== */
+  #blog{background:var(--panel);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+  .blog-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+  .post{
+    background:var(--bg);border:1px solid var(--line-dark);border-radius:3px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .3s,border-color .3s;
+  }
+  .post:hover{transform:translateY(-5px);border-color:var(--purple)}
+  .post .thumb{height:140px;position:relative;background:var(--panel);border-bottom:1px solid var(--line-dark)}
+  .post .thumb .g1{position:absolute;inset:0;clip-path:polygon(0 0,55% 0,0 100%);background:var(--line-dark)}
+  .post .thumb .ic{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+  .post .body{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1}
+  .post .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--purple);font-weight:500}
+  .post h3{font-weight:700;font-size:20px;letter-spacing:-.5px;margin:10px 0 10px;line-height:1.25}
+  .post p{font-size:14px;font-weight:300;color:#a9a7cf;flex:1}
+  .post .meta{margin-top:18px;font-size:12px;color:var(--purple-deep);display:flex;justify-content:space-between;align-items:center}
+  .post .read{color:var(--purple-light);font-weight:500}
+  .blog-foot{margin-top:42px;text-align:center}
+
+  /* ===== FOLLOW / SOCIAL CTA ===== */
+  #follow{text-align:center;overflow:hidden}
+  .follow-card{
+    position:relative;background:var(--panel);border:1px solid var(--line-dark);border-radius:4px;
+    padding:74px 32px;overflow:hidden;
+  }
+  .follow-card .corner-tl{position:absolute;top:0;left:0;width:120px;height:120px;background:var(--line-dark);clip-path:polygon(0 0,100% 0,0 100%)}
+  .follow-card .corner-br{position:absolute;bottom:0;right:0;width:120px;height:120px;background:var(--purple-deep);opacity:.5;clip-path:polygon(100% 100%,0 100%,100% 0)}
+  .follow-card .eyebrow{margin-bottom:18px}
+  .follow-card h2{font-weight:800;font-size:clamp(30px,4.5vw,48px);letter-spacing:-1.5px;position:relative}
+  .follow-card p{font-size:18px;font-weight:300;color:#bfbde0;max-width:520px;margin:18px auto 0;position:relative}
+  .socials{margin-top:40px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative}
+  .soc{
+    display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;
+    padding:13px 22px;border:1px solid var(--line-dark);border-radius:2px;color:var(--text);
+    transition:background .25s,border-color .25s,transform .2s;
+  }
+  .soc:hover{border-color:var(--purple);background:rgba(102,99,184,.12);transform:translateY(-2px)}
+  .soc svg{width:18px;height:18px;fill:var(--purple-light)}
+  .handle{margin-top:30px;font-size:14px;letter-spacing:4px;color:var(--purple);font-weight:300;position:relative}
+  .contact-mail{position:relative;display:inline-flex;align-items:center;gap:9px;margin-top:30px;font-size:15px;font-weight:500;color:var(--text);border-bottom:1px solid var(--line-dark);padding-bottom:4px;transition:border-color .25s,color .25s}
+  .contact-mail:hover{border-color:var(--purple);color:var(--purple-light)}
+  .contact-mail svg{width:17px;height:17px;fill:var(--purple-light)}
+
+  /* ===== FOOTER ===== */
+  footer{border-top:1px solid var(--line-dark);padding:46px 0 40px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot-inner .brand .wm b{font-size:20px}
+  footer .fnav{display:flex;gap:26px;font-size:13px;color:var(--purple-light)}
+  footer .fnav a:hover{color:var(--text)}
+  footer .copy{font-size:12px;color:var(--purple-deep);margin-top:26px;letter-spacing:.5px}
+
+  /* ===== RANDEVU / DERS AL ===== */
+  #randevu{background:linear-gradient(180deg,transparent,rgba(18,17,42,.4),transparent)}
+  .booking{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:46px;align-items:stretch}
+  .bk-panel{background:var(--panel);border:1px solid var(--line-dark);border-radius:4px;padding:30px}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .cal-head .m{font-size:19px;font-weight:700;letter-spacing:-.3px}
+  .cal-nav{display:flex;gap:8px}
+  .cal-nav button{width:34px;height:34px;border:1px solid var(--line-dark);background:transparent;color:var(--text);border-radius:2px;cursor:pointer;font-size:16px;transition:border-color .2s,background .2s}
+  .cal-nav button:hover{border-color:var(--purple);background:rgba(102,99,184,.1)}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .cal-grid .dow{font-size:11px;text-align:center;color:var(--purple-deep);font-weight:500;padding:4px 0;letter-spacing:.5px}
+  .cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:3px;cursor:pointer;border:1px solid transparent;transition:background .15s,border-color .15s,color .15s}
+  .cal-day:hover:not(.disabled){background:rgba(102,99,184,.14);border-color:var(--purple)}
+  .cal-day.disabled{color:#2c2a4a;cursor:not-allowed}
+  .cal-day.empty{cursor:default}
+  .cal-day.selected{background:var(--purple);color:#0A0918;font-weight:700}
+  .bk-side h3{font-size:18px;font-weight:700;margin-bottom:6px}
+  .bk-side .hint{font-size:13px;color:var(--purple-light);font-weight:300;margin-bottom:20px}
+  .slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+  .slot{padding:10px 0;text-align:center;font-size:14px;border:1px solid var(--line-dark);border-radius:2px;background:transparent;color:var(--text);cursor:pointer;transition:border-color .2s,background .2s}
+  .slot:hover{border-color:var(--purple)}
+  .slot.selected{background:var(--purple);color:#0A0918;font-weight:700;border-color:var(--purple)}
+  .bk-field{margin-bottom:14px}
+  .bk-field label{display:block;font-size:12px;letter-spacing:1px;color:var(--purple-light);margin-bottom:6px;text-transform:uppercase}
+  .bk-field input,.bk-field select{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--line-dark);border-radius:2px;color:var(--text);font-family:'Epilogue',sans-serif;font-size:15px}
+  .bk-field input:focus,.bk-field select:focus{outline:none;border-color:var(--purple)}
+  .bk-field select{appearance:none;cursor:pointer}
+  .bk-summary{font-size:14px;color:var(--purple-light);margin:6px 0 16px;min-height:20px}
+  .bk-summary b{color:var(--text)}
+  #bkConfirm{width:100%;justify-content:center;border:0;cursor:pointer;font-family:'Epilogue',sans-serif}
+  #bkConfirm:disabled{opacity:.4;cursor:not-allowed;transform:none}
+  .bk-note{font-size:12px;color:var(--purple-deep);margin-top:14px;text-align:center;font-weight:300}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:880px){
+    nav.links{display:none}
+    .burger{display:block}
+    .hero{padding:80px 0 90px}
+    .hero .diag,.hero .diag2{display:none}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-deco{display:none}
+    .about-grid,.pillars,.blog-grid{grid-template-columns:1fr}
+    .blog-grid{gap:20px}
+    .booking{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){
+    .container{padding:0 20px}
+    .stats{grid-template-columns:1fr 1fr}
+    .follow-card{padding:54px 22px}
+  }
+  .about-two-col{display:grid;grid-template-columns:1fr 320px;gap:50px;align-items:start}
+  .about-photo{position:sticky;top:100px}
+  .about-photo img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line-dark);box-shadow:0 18px 50px rgba(102,99,184,.18)}
+  @media(max-width:760px){ .about-two-col{grid-template-columns:1fr;gap:28px} .about-photo{position:static;max-width:300px;order:-1} }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Dicle English">
+      <svg class="icon" width="34" height="40" viewBox="0 0 96 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="0,110 0,0 58,0 96,55 58,110" fill="#EEEDF8"/>
+        <polygon points="0,0 58,0 96,55" fill="#6663B8"/>
+      </svg>
+      <span class="wm"><b>Dicle</b><span>ENGLISH</span></span>
+    </a>
+    <nav class="links">
+      <a href="index.html#about">Hakkında</a>
+      <a href="index.html#dersler">Nasıl Çalışıyoruz</a>
+      <a href="index.html#randevu">Tanışalım</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#follow">İletişim &amp; Topluluk</a>
+    </nav>
+    <a class="nav-cta" href="index.html#randevu">Tanışalım</a>
+  </div>
+</header>
+
+<!-- ============ ABOUT HERO ============ -->
+<section class="hero" id="top" style="padding:96px 0 60px">
+  <div class="diag"></div>
+  <div class="diag2"></div>
+  <div class="container" style="position:relative;z-index:2">
+    <div class="sec-label reveal" style="margin-bottom:22px">Hakkımda</div>
+    <h1 class="reveal" style="font-weight:800;font-size:clamp(40px,6vw,76px);line-height:1;letter-spacing:-2px;max-width:820px">Merhaba, ben Dicle Deniz Mart.</h1>
+    <p class="sub reveal" style="margin-top:24px;max-width:620px">İngilizceyi <i>gerçek hayatta yaşatan</i> bir öğretmen.</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT CONTENT ============ -->
+<section style="padding:20px 0 110px">
+  <div class="container" style="max-width:1040px">
+    <div class="about-two-col">
+    <div class="reveal" style="font-size:19px;font-weight:300;line-height:1.7;color:#cfcdec">
+      <p style="margin-bottom:24px">Dokuz Eylül Üniversitesi İngilizce Öğretmenliği bölümünden mezun oldum. Yurt dışında geçirdiğim süre ve uluslararası geçerliliğe sahip dil yetkinliğim, öğretmeye bakışımı şekillendiren iki temel unsur oldu.</p>
+      <p style="margin-bottom:24px">Öğrencilerle çalışırken amaç yalnızca bir sınavı geçmek ya da bir konuyu tamamlamak değil; İngilizceyi kendi hayatının doğal bir parçası hâline getirmek. Herkesin ihtiyacı, ritmi ve hedefi farklı olduğu için hazır kalıplar yerine kişiye özel, bire bir programlar tasarlıyorum. Yetişkinler, sınava hazırlananlar ve konuşmasını ilerletmek isteyenlerle; konuşma kulüplerinden özel derslere kadar farklı formatlarda çalışıyorum.</p>
+      <p style="margin-bottom:24px">Yaklaşımın merkezinde tek bir ilke var: kimseyi anlamadan bırakmamak. Dil, kurallar yığını olarak değil, gerçek hayatta işleyen bir mantık olarak ele alınır. Sosyal medyada paylaştığım içeriklerle de aynı sadeliği ve günlük hayata dokunan yaklaşımı geniş bir kitleyle buluşturuyorum.</p>
+      <p style="font-weight:700;color:var(--text);margin:36px 0 16px;font-size:18px">En sık çalışılan alanlar</p>
+      <ul style="list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:12px">
+        <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;background:var(--purple)"></span>Sınav hazırlığı — IELTS, YDS, YDT, YÖKDİL</li>
+        <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;background:var(--purple)"></span>Akıcı ve öz güvenli konuşma</li>
+        <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;background:var(--purple)"></span>İş İngilizcesi ve profesyonel iletişim</li>
+        <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;background:var(--purple)"></span>Yurt dışı yaşam ve akademik hayata hazırlık</li>
+      </ul>
+      <p style="margin-bottom:36px">Tüm süreç <strong style="color:var(--text);font-weight:700">learn · practice · speak</strong> ilkesiyle ilerler: önce kavra, ardından uygula, sonunda çekinmeden konuş.</p>
+    </div>
+    <aside class="about-photo reveal">
+      <img src="dicle.jpg" alt="Dicle Deniz Mart" width="600" height="800">
+      <div style="margin-top:14px;font-size:13px;letter-spacing:1.5px;color:var(--purple-light);font-weight:600">DİCLE DENİZ MART</div>
+      <div style="font-size:13px;color:var(--purple-deep);font-weight:300;margin-top:2px">İngilizce Öğretmeni</div>
+    </aside>
+    </div><!-- /about-two-col -->
+    <div class="reveal" style="margin-top:44px;display:flex;gap:16px;flex-wrap:wrap">
+      <a class="btn btn-primary" href="index.html#randevu">Tanışalım</a>
+      <a class="btn btn-ghost" href="index.html">← Ana Sayfa</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container foot-inner">
+    <a class="brand" href="index.html">
+      <svg class="icon" width="28" height="33" viewBox="0 0 96 110"><polygon points="0,110 0,0 58,0 96,55 58,110" fill="#EEEDF8"/><polygon points="0,0 58,0 96,55" fill="#6663B8"/></svg>
+      <span class="wm"><b>Dicle</b><span>ENGLISH</span></span>
+    </a>
+    <nav class="fnav">
+      <a href="index.html#about">Hakkında</a>
+      <a href="index.html#dersler">Nasıl Çalışıyoruz</a>
+      <a href="index.html#randevu">Tanışalım</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#follow">İletişim &amp; Topluluk</a>
+      <a href="gizlilik.html">Gizlilik &amp; KVKK</a>
+    </nav>
+  </div>
+  <div class="container"><div class="copy">© 2026 Dicle English · learn · practice · speak</div></div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e)=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i%4*0.08)+'s'; io.observe(el); });
+</script>
+
+</body>
+</html>
