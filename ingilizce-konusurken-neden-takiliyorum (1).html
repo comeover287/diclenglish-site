@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İngilizce Konuşurken Neden Takılıyorum? Gerçek Sebepler</title>
+<meta name="description" content="İngilizce konuşurken takılmanın sebebi kelime eksikliği değil. Türkçe düşünmenin yarattığı gerçek sorunu ve bugün deneyebileceğin 6 somut çözümü anlattım.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0A0918">
+<style>
+  :root{
+    --bg:#0A0918;
+    --panel:#12112A;
+    --line-dark:#1E1C3A;
+    --purple-deep:#3D3A8C;
+    --purple:#6663B8;
+    --purple-light:#9896D4;
+    --text:#EEEDF8;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Epilogue',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* subtle grain / glow atmosphere */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background:
+      radial-gradient(900px 500px at 12% -5%, rgba(102,99,184,0.14), transparent 60%),
+      radial-gradient(700px 500px at 100% 100%, rgba(61,58,140,0.10), transparent 55%);
+    pointer-events:none;z-index:0;
+  }
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1}
+
+  /* ===== ICON (geometrik arrow motifi) ===== */
+  .icon{display:inline-block;vertical-align:middle}
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(10,9,24,0.72);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .wm{display:flex;flex-direction:column;line-height:1}
+  .brand .wm b{font-weight:800;font-size:24px;letter-spacing:-1px}
+  .brand .wm span{font-weight:300;font-size:9px;letter-spacing:6px;color:var(--purple);margin-top:3px}
+  nav.links{display:flex;align-items:center;gap:34px}
+  nav.links a{font-size:14px;font-weight:500;color:var(--purple-light);transition:color .2s}
+  nav.links a:hover{color:var(--text)}
+  .nav-cta{
+    font-size:13px;font-weight:700;letter-spacing:.5px;
+    padding:10px 20px;border:1px solid var(--purple);border-radius:2px;color:var(--text);
+    transition:background .25s,color .25s;
+  }
+  .nav-cta:hover{background:var(--purple);color:#0A0918}
+  .burger{display:none;background:none;border:0;cursor:pointer;color:var(--text)}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;padding:120px 0 130px;overflow:hidden}
+  .hero .diag{
+    position:absolute;top:0;right:0;width:46%;height:100%;
+    background:var(--panel);
+    clip-path:polygon(28% 0,100% 0,100% 100%,0 100%);
+    z-index:0;
+  }
+  .hero .diag2{
+    position:absolute;top:0;right:0;width:46%;height:100%;
+    border-left:1px solid var(--line-dark);
+    clip-path:polygon(28% 0,29% 0,1% 100%,0 100%);
+  }
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  .eyebrow{font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--purple);margin-bottom:26px;font-weight:500}
+  .hero h1{font-weight:800;font-size:clamp(48px,7vw,90px);line-height:.96;letter-spacing:-3px}
+  .hero h1 .dot{display:inline-block;width:13px;height:13px;border-radius:50%;background:var(--purple);vertical-align:middle;margin:0 6px 16px}
+  .hero .sub{margin-top:28px;font-size:clamp(20px,2.4vw,30px);font-weight:300}
+  .hero .sub i{font-style:italic;color:var(--purple-light)}
+  .hero .amp{color:var(--purple-deep)}
+  .hero-cta{margin-top:42px;display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:15px;font-weight:700;letter-spacing:.3px;
+    padding:15px 28px;border-radius:2px;transition:transform .2s,background .25s,color .25s,border-color .25s;
+  }
+  .btn-primary{background:var(--purple);color:#0A0918}
+  .btn-primary:hover{background:var(--purple-light);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line-dark);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--purple);transform:translateY(-2px)}
+  .hero-deco{display:flex;justify-content:center;align-items:center}
+  .hero-deco .big-icon{filter:drop-shadow(0 20px 50px rgba(102,99,184,.25))}
+
+  /* reveal anim */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:96px 0;position:relative}
+  .sec-label{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:22px}
+  .sec-label::before{content:"";width:34px;height:1px;background:var(--purple-deep)}
+  h2.sec-title{font-weight:800;font-size:clamp(32px,4.4vw,52px);letter-spacing:-1.5px;line-height:1.05;max-width:680px}
+
+  /* ===== ABOUT ===== */
+  #about{background:linear-gradient(180deg,transparent,rgba(18,17,42,.45),transparent)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:40px}
+  .about-grid p{font-size:18px;font-weight:300;color:#cfcdec;margin-bottom:20px}
+  .about-grid p strong{font-weight:700;color:var(--text)}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
+  .stat{background:var(--panel);padding:30px 26px}
+  .stat b{display:block;font-size:27px;font-weight:800;letter-spacing:-0.5px;line-height:1.1}
+  .stat span{font-size:13px;color:var(--purple-light);font-weight:300;margin-top:8px;display:block}
+
+  /* ===== PILLARS / DERSLER ===== */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+  .pillar{
+    background:var(--panel);border:1px solid var(--line-dark);padding:38px 32px;border-radius:3px;
+    position:relative;overflow:hidden;transition:border-color .3s,transform .3s;
+  }
+  .pillar::after{content:"";position:absolute;top:0;right:0;width:70px;height:70px;background:var(--line-dark);clip-path:polygon(100% 0,0 0,100% 100%);transition:background .3s}
+  .pillar:hover{border-color:var(--purple);transform:translateY(-4px)}
+  .pillar:hover::after{background:var(--purple-deep)}
+  .pillar .num{font-size:13px;color:var(--purple);letter-spacing:3px;font-weight:500}
+  .pillar h3{font-weight:800;font-size:30px;letter-spacing:-1px;margin:14px 0 12px}
+  .pillar p{font-size:15px;font-weight:300;color:#bfbde0}
+
+  /* ===== BLOG ===== */
+  #blog{background:var(--panel);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+  .blog-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+  .post{
+    background:var(--bg);border:1px solid var(--line-dark);border-radius:3px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .3s,border-color .3s;
+  }
+  .post:hover{transform:translateY(-5px);border-color:var(--purple)}
+  .post .thumb{height:150px;position:relative;background:var(--panel);border-bottom:1px solid var(--line-dark);overflow:hidden}
+  .post .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .post.soon{opacity:.5}
+  .post.soon .read{color:var(--purple-deep)}
+  a.post-link{display:block;color:inherit;text-decoration:none}
+  .post .thumb .g1{position:absolute;inset:0;clip-path:polygon(0 0,55% 0,0 100%);background:var(--line-dark)}
+  .post .thumb .ic{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+  .post .body{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1}
+  .post .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--purple);font-weight:500}
+  .post h3{font-weight:700;font-size:20px;letter-spacing:-.5px;margin:10px 0 10px;line-height:1.25}
+  .post p{font-size:14px;font-weight:300;color:#a9a7cf;flex:1}
+  .post .meta{margin-top:18px;font-size:12px;color:var(--purple-deep);display:flex;justify-content:space-between;align-items:center}
+  .post .read{color:var(--purple-light);font-weight:500}
+  .blog-foot{margin-top:42px;text-align:center}
+
+  /* ===== FOLLOW / SOCIAL CTA ===== */
+  #follow{text-align:center;overflow:hidden}
+  .follow-card{
+    position:relative;background:var(--panel);border:1px solid var(--line-dark);border-radius:4px;
+    padding:74px 32px;overflow:hidden;
+  }
+  .follow-card .corner-tl{position:absolute;top:0;left:0;width:120px;height:120px;background:var(--line-dark);clip-path:polygon(0 0,100% 0,0 100%)}
+  .follow-card .corner-br{position:absolute;bottom:0;right:0;width:120px;height:120px;background:var(--purple-deep);opacity:.5;clip-path:polygon(100% 100%,0 100%,100% 0)}
+  .follow-card .eyebrow{margin-bottom:18px}
+  .follow-card h2{font-weight:800;font-size:clamp(30px,4.5vw,48px);letter-spacing:-1.5px;position:relative}
+  .follow-card p{font-size:18px;font-weight:300;color:#bfbde0;max-width:520px;margin:18px auto 0;position:relative}
+  .socials{margin-top:40px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative}
+  .soc{
+    display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;
+    padding:13px 22px;border:1px solid var(--line-dark);border-radius:2px;color:var(--text);
+    transition:background .25s,border-color .25s,transform .2s;
+  }
+  .soc:hover{border-color:var(--purple);background:rgba(102,99,184,.12);transform:translateY(-2px)}
+  .soc svg{width:18px;height:18px;fill:var(--purple-light)}
+  .handle{margin-top:30px;font-size:14px;letter-spacing:4px;color:var(--purple);font-weight:300;position:relative}
+  .contact-mail{position:relative;display:inline-flex;align-items:center;gap:9px;margin-top:30px;font-size:15px;font-weight:500;color:var(--text);border-bottom:1px solid var(--line-dark);padding-bottom:4px;transition:border-color .25s,color .25s}
+  .contact-mail:hover{border-color:var(--purple);color:var(--purple-light)}
+  .contact-mail svg{width:17px;height:17px;fill:var(--purple-light)}
+
+  /* ===== FOOTER ===== */
+  footer{border-top:1px solid var(--line-dark);padding:46px 0 40px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot-inner .brand .wm b{font-size:20px}
+  footer .fnav{display:flex;gap:26px;font-size:13px;color:var(--purple-light)}
+  footer .fnav a:hover{color:var(--text)}
+  footer .copy{font-size:12px;color:var(--purple-deep);margin-top:26px;letter-spacing:.5px}
+
+  /* ===== RANDEVU / DERS AL ===== */
+  #randevu{background:linear-gradient(180deg,transparent,rgba(18,17,42,.4),transparent)}
+  .booking{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:46px;align-items:stretch}
+  .bk-panel{background:var(--panel);border:1px solid var(--line-dark);border-radius:4px;padding:30px}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .cal-head .m{font-size:19px;font-weight:700;letter-spacing:-.3px}
+  .cal-nav{display:flex;gap:8px}
+  .cal-nav button{width:34px;height:34px;border:1px solid var(--line-dark);background:transparent;color:var(--text);border-radius:2px;cursor:pointer;font-size:16px;transition:border-color .2s,background .2s}
+  .cal-nav button:hover{border-color:var(--purple);background:rgba(102,99,184,.1)}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .cal-grid .dow{font-size:11px;text-align:center;color:var(--purple-deep);font-weight:500;padding:4px 0;letter-spacing:.5px}
+  .cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:3px;cursor:pointer;border:1px solid transparent;transition:background .15s,border-color .15s,color .15s}
+  .cal-day:hover:not(.disabled){background:rgba(102,99,184,.14);border-color:var(--purple)}
+  .cal-day.disabled{color:#2c2a4a;cursor:not-allowed}
+  .cal-day.empty{cursor:default}
+  .cal-day.selected{background:var(--purple);color:#0A0918;font-weight:700}
+  .bk-side h3{font-size:18px;font-weight:700;margin-bottom:6px}
+  .bk-side .hint{font-size:13px;color:var(--purple-light);font-weight:300;margin-bottom:20px}
+  .slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+  .slot{padding:10px 0;text-align:center;font-size:14px;border:1px solid var(--line-dark);border-radius:2px;background:transparent;color:var(--text);cursor:pointer;transition:border-color .2s,background .2s}
+  .slot:hover{border-color:var(--purple)}
+  .slot.selected{background:var(--purple);color:#0A0918;font-weight:700;border-color:var(--purple)}
+  .bk-field{margin-bottom:14px}
+  .bk-field label{display:block;font-size:12px;letter-spacing:1px;color:var(--purple-light);margin-bottom:6px;text-transform:uppercase}
+  .bk-field input,.bk-field select{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--line-dark);border-radius:2px;color:var(--text);font-family:'Epilogue',sans-serif;font-size:15px}
+  .bk-field input:focus,.bk-field select:focus{outline:none;border-color:var(--purple)}
+  .bk-field select{appearance:none;cursor:pointer}
+  .bk-summary{font-size:14px;color:var(--purple-light);margin:6px 0 16px;min-height:20px}
+  .bk-summary b{color:var(--text)}
+  #bkConfirm{width:100%;justify-content:center;border:0;cursor:pointer;font-family:'Epilogue',sans-serif}
+  #bkConfirm:disabled{opacity:.4;cursor:not-allowed;transform:none}
+  .bk-note{font-size:12px;color:var(--purple-deep);margin-top:14px;text-align:center;font-weight:300}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:880px){
+    nav.links{display:none}
+    .burger{display:block}
+    .hero{padding:80px 0 90px}
+    .hero .diag,.hero .diag2{display:none}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-deco{display:none}
+    .about-grid,.pillars,.blog-grid{grid-template-columns:1fr}
+    .blog-grid{gap:20px}
+    .booking{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){
+    .container{padding:0 20px}
+    .stats{grid-template-columns:1fr 1fr}
+    .follow-card{padding:54px 22px}
+  }
+
+  .badge{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--purple-light);background:rgba(102,99,184,.14);border:1px solid var(--line-dark);padding:6px 14px;border-radius:2px}
+  .post-cover{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line-dark);margin:0}
+  .post-meta{font-size:13px;color:var(--purple-deep);letter-spacing:.5px;margin-top:18px}
+  .article{font-size:18px;font-weight:300;line-height:1.8;color:#cfcdec}
+  .article p{margin-bottom:22px}
+  .article h2{font-size:27px;font-weight:800;letter-spacing:-0.5px;color:var(--text);margin:48px 0 16px;line-height:1.2}
+  .article h3{font-size:21px;font-weight:700;color:var(--text);margin:34px 0 12px}
+  .article strong{color:var(--text);font-weight:700}
+  .article ul{list-style:none;padding:0;margin:0 0 22px}
+  .article ul li{padding-left:22px;position:relative;margin-bottom:10px}
+  .article ul li::before{content:"";position:absolute;left:0;top:12px;width:7px;height:7px;border-radius:50%;background:var(--purple)}
+  .article .ex{background:var(--panel);border:1px solid var(--line-dark);border-left:3px solid var(--purple);border-radius:4px;padding:14px 18px;margin:0 0 22px;font-size:17px}
+  .article blockquote{border-left:3px solid var(--purple);padding:8px 0 8px 22px;margin:28px 0;font-size:22px;color:var(--text);font-style:italic;font-weight:300;line-height:1.5}
+  .article table{width:100%;border-collapse:collapse;margin:8px 0 28px;font-size:16px;border:1px solid var(--line-dark);border-radius:8px;overflow:hidden}
+  .article th,.article td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line-dark)}
+  .article thead th{background:var(--panel);color:var(--purple-light);font-weight:600;text-transform:uppercase;letter-spacing:1px;font-size:12px}
+  .article tbody tr:last-child td{border-bottom:0}
+  .article td:first-child{color:var(--text);font-weight:700;width:64px;text-align:center}
+  .faq{margin-top:8px}
+  .faq .q{font-size:18px;font-weight:700;color:var(--text);margin:24px 0 6px}
+  .ebook{margin:44px 0 8px;background:linear-gradient(135deg,rgba(102,99,184,.16),rgba(61,58,140,.10));border:1px solid var(--purple-deep);border-radius:12px;padding:34px 30px;position:relative;overflow:hidden}
+  .ebook::after{content:"";position:absolute;top:-30px;right:-30px;width:130px;height:130px;background:var(--line-dark);opacity:.5;clip-path:polygon(100% 0,0 0,100% 100%)}
+  .ebook .k{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--purple-light);font-weight:600}
+  .ebook h3{font-size:26px;font-weight:800;letter-spacing:-0.5px;color:var(--text);margin:10px 0 8px;position:relative}
+  .ebook p{font-size:16px;color:#bfbde0;font-weight:300;margin:0 0 20px;max-width:520px;position:relative}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Dicle English">
+      <svg class="icon" width="34" height="40" viewBox="0 0 96 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="0,110 0,0 58,0 96,55 58,110" fill="#EEEDF8"/>
+        <polygon points="0,0 58,0 96,55" fill="#6663B8"/>
+      </svg>
+      <span class="wm"><b>Dicle</b><span>ENGLISH</span></span>
+    </a>
+    <nav class="links">
+      <a href="index.html#about">Hakkında</a>
+      <a href="index.html#dersler">Nasıl Çalışıyoruz</a>
+      <a href="index.html#randevu">Tanışalım</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#follow">İletişim &amp; Topluluk</a>
+    </nav>
+    <a class="nav-cta" href="index.html#randevu">Tanışalım</a>
+  </div>
+</header>
+
+<article>
+  <section style="padding:70px 0 30px">
+    <div class="container" style="max-width:820px">
+      <a href="index.html#blog" style="font-size:14px;color:var(--purple-light);font-weight:500">← Bloga dön</a>
+      <div style="margin:22px 0 18px"><span class="badge reveal">Konuşma &amp; Akıcılık</span></div>
+      <h1 class="reveal" style="font-weight:800;font-size:clamp(32px,5vw,56px);line-height:1.08;letter-spacing:-1.5px">İngilizce konuşurken neden takılıyorum?</h1>
+      <div class="post-meta reveal">Dicle Deniz Mart · 12 dk okuma</div>
+    </div>
+  </section>
+
+  <section style="padding:10px 0 0">
+    <div class="container" style="max-width:920px">
+      <img class="post-cover reveal" src="blog-cover-takilma.jpg" alt="İngilizce konuşurken takılan bir kişi ve düşünce balonu" width="1200" height="675">
+    </div>
+  </section>
+
+  <section style="padding:46px 0 90px">
+    <div class="container article" style="max-width:720px">
+
+      <p>İngilizce konuşurken takılmanın en yaygın sebebi kelime bilmemek değil, cümleyi Türkçe kurup İngilizceye çevirmeye çalışmak. Türkçede fiil cümlenin sonundadır, İngilizcede ise başa yakındır. Yani çeviri yaparken cümlenin tamamını kafanda tutup baştan sona ters çevirmen gerekir. Beyin bunu yapamaz, sen de ilk kelimede donarsın.</p>
+      <p>Bunu çözmenin yolu daha çok kelime ezberlemek değil. Bildiğin kelimelerle cümleye nasıl başlayacağını öğrenmek.</p>
+      <p>Aşağıda bu takılmanın gerçek sebeplerini ve her biri için deneyebileceğin somut bir çözümü bulacaksın.</p>
+
+      <h2>Takılmak başarısızlık değil, yanlış yerde takılmak sorun</h2>
+      <p>Şunu baştan söyleyelim: anadili İngilizce olan insanlar da konuşurken takılır. Duraklar, düşünür, kelime arar. Aradaki fark şu:</p>
+      <blockquote>Onlar İngilizce takılır. Sen sessiz kalırsın.</blockquote>
+      <p>Onlar “um”, “well”, “how can I put it” der ve düşünme süresini satın alır. Sen ise doğru kelimeyi bulana kadar susarsın, karşı taraf sessizliği “anlamadı” diye okur, sen utanırsın, bir daha konuşmak istemezsin.</p>
+      <p>Yani hedef takılmamak değil. Hedef, takıldığın anı İngilizce yönetebilmek.</p>
+
+      <h2>Takılmanın 5 gerçek sebebi</h2>
+
+      <h3>1. Kafanda çeviri yapıyorsun</h3>
+      <p>Şu cümleyi düşün:</p>
+      <div class="ex"><strong>Dün akşam arkadaşımla sinemaya gittim.</strong></div>
+      <p>Türkçede sıra şöyle: zaman, kişi, yer, fiil. Fiil en sonda. İngilizcede aynı cümle şöyle:</p>
+      <div class="ex"><strong>I went to the cinema with my friend last night.</strong></div>
+      <p>Fiil ikinci sırada. Yani Türkçe düşünüp çeviriyorsan, konuşmaya başlamadan önce cümlenin sonunu bilmek zorundasın. Bu yüzden ağzını açmadan önce üç saniye bekliyorsun.</p>
+      <p>Aynı sorun soru cümlelerinde daha da net:</p>
+      <ul>
+        <li>gidebilir miyim → <strong>Can I go</strong></li>
+        <li>ne yaptığını bilmiyorum → <strong>I don’t know what you did</strong></li>
+      </ul>
+      <p>Türkçede anlamı taşıyan ekler sona eklenir, İngilizcede ise yardımcı kelimeler öne gelir. Türkçe düşündüğün sürece her cümlede bu takla atmayı yapmak zorunda kalırsın.</p>
+
+      <h3>2. Konuşurken aynı anda gramer kontrolü yapıyorsun</h3>
+      <p>Cümleye başlıyorsun: “I have go... yok, I went...” Derken düzeltmeyle uğraşırken söylemek istediğin şeyi unutuyorsun.</p>
+      <p>Bunun bir adı var: konuşurken içindeki gramer denetçisini fazla çalıştırmak. Doğruluk ve akıcılık aynı anda çalışmaz. Yazarken denetçi açık olmalı, konuşurken kısık olmalı.</p>
+
+      <h3>3. Kelimeleri tanıyorsun ama kullanmıyorsun</h3>
+      <p>İki tür kelime dağarcığın var: tanıdıkların ve kullandıkların. Bir metinde “reluctant” görünce anlarsın ama konuşurken aklına asla gelmez. Çoğu insanda tanıdık kelime sayısı, kullandığı kelime sayısının üç dört katıdır.</p>
+      <p>Yani sorun kelime eksikliği değil, uyuyan kelimeler. Yeni kelime ezberlemek bu boşluğu büyütür, kapatmaz.</p>
+
+      <h3>4. Yıllardır sadece input alıyorsun</h3>
+      <p>Dizi izliyorsun, podcast dinliyorsun, kitap okuyorsun. Hepsi çok değerli ama hiçbiri konuşma pratiği değil.</p>
+      <p>Anlamak ve üretmek iki ayrı beceri. Yüzme videosu izleyerek yüzmeyi öğrenemezsin. Suya girmen gerekir ve ilk girdiğinde çirkin yüzeceksin. Normal.</p>
+
+      <h3>5. Hata yapma korkusu kaslarını kilitliyor</h3>
+      <p>Türkiye’de İngilizce eğitimi uzun yıllar test üzerinden verildi. Hata yapmak puan kaybıydı. Bu yüzden pek çok insanın kafasında İngilizce konuşmak, sohbet etmek değil, sınav olmak gibi hissettiriyor.</p>
+      <p>Karşındaki kişi seni değerlendirmiyor. Sadece ne demek istediğini anlamaya çalışıyor.</p>
+
+      <h2>Çözümler: bugün deneyebileceğin 6 teknik</h2>
+
+      <h3>1. Cümleye fiille başla, detayı sonra ekle</h3>
+      <p>İngilizcenin en güzel özelliği şu: cümleyi başlattıktan sonra sonuna istediğin kadar ekleme yapabilirsin.</p>
+      <div class="ex">
+        I went...<br>
+        I went to the cinema...<br>
+        I went to the cinema with my friend...<br>
+        I went to the cinema with my friend last night...<br>
+        I went to the cinema with my friend last night because we were bored.
+      </div>
+      <p>Türkçede bunu yapamazsın, fiili sona koymak zorundasın. İngilizcede yapabilirsin. Bu senin en büyük avantajın.</p>
+      <p>Bugün şunu dene: on cümle kur ve her birinde önce sadece özne ve fiili söyle. Gerisini konuşurken bul.</p>
+      <p>Cümle başlatıcı olarak ezberleyeceğin beş kalıp:</p>
+      <ul>
+        <li>I think...</li>
+        <li>I was going to...</li>
+        <li>The thing is...</li>
+        <li>What I mean is...</li>
+        <li>It depends on...</li>
+      </ul>
+
+      <h3>2. Kelime değil, kalıp ezberle</h3>
+      <p>Anadili İngilizce olanlar cümleleri kelime kelime kurmaz. Hazır blokları birleştirir.</p>
+      <ul>
+        <li>Ne demek istediğimi anlıyor musun → <strong>You know what I mean?</strong></li>
+        <li>Acaba şey mi diyordum → <strong>I was wondering if...</strong></li>
+        <li>Öyle bir şey işte → <strong>Something like that.</strong></li>
+        <li>Bana kalırsa → <strong>If you ask me...</strong></li>
+        <li>Uzun lafın kısası → <strong>Long story short...</strong></li>
+      </ul>
+      <p>Bunları kelime kelime çözmeye çalışma. Tek bir kelime gibi ezberle ve ağzından tek parça çıksın. Haftada beş kalıp, altı ayda yüz yirmi kalıp eder. Bu, konuşmanın iskeletidir.</p>
+
+      <h3>3. Kelimeyi bulamayınca tarif et</h3>
+      <p>En kritik beceri bu ve kimse öğretmiyor. Kelime aklına gelmediğinde susmak yerine anlatırsın.</p>
+      <ul>
+        <li>“musluk” gelmiyorsa → <strong>the thing in the kitchen where water comes out</strong></li>
+        <li>“kürek” gelmiyorsa → <strong>the tool you use to move snow</strong></li>
+        <li>“kira kontratı” gelmiyorsa → <strong>the paper you sign when you rent a house</strong></li>
+      </ul>
+      <p>Karşındaki insan yüzde doksan ihtimalle kelimeyi senin için söyler: “Oh, the tap?” Hem iletişim kopmaz hem kelimeyi öğrenirsin.</p>
+      <p>Bugünkü egzersizin: odandaki beş eşyayı ismini söylemeden İngilizce tarif et.</p>
+
+      <h3>4. Sessizliği İngilizce doldur</h3>
+      <p>Düşünmek için zamana ihtiyacın olduğunda Türkçe “yani” demek yerine şunları kullan:</p>
+      <ul>
+        <li><strong>Let me think for a second.</strong></li>
+        <li><strong>How can I put it...</strong></li>
+        <li><strong>What’s the word...</strong></li>
+        <li><strong>It’s on the tip of my tongue.</strong></li>
+        <li><strong>That’s a good question.</strong></li>
+      </ul>
+      <p>Bunlar boş laf değil. Sana iki üç saniye kazandırır ve o sürede karşı taraf senin düşündüğünü görür, donduğunu değil.</p>
+
+      <h3>5. Doğruluk pratiğiyle akıcılık pratiğini ayır</h3>
+      <p>İkisini aynı seansta yapma.</p>
+      <p><strong>Akıcılık için:</strong> iki dakika boyunca durmadan konuş, hata düzeltme, geri dönme. Amaç sadece durmamak.</p>
+      <p><strong>Doğruluk için:</strong> konuştuğunu yaz veya kaydını dinle, sonra hataları sakin sakin düzelt.</p>
+      <p>Beyin ikisini aynı anda yapamıyor. Ayırdığında ikisi de hızlanıyor.</p>
+
+      <h3>6. Kendi kendine konuş, ama yüksek sesle</h3>
+      <p>Sessiz kafa içi İngilizce pratik sayılmaz çünkü dil kaslarını çalıştırmaz. Yüksek sesle konuşmak gerekiyor.</p>
+      <p>Günde iki dakika, telefonuna kayıt yaparak, o gün ne yaptığını anlat. İlk hafta korkunç olacak. Üçüncü haftada birinci haftanın kaydını dinlediğinde farkı sen duyacaksın.</p>
+
+      <h2>7 günlük mini plan</h2>
+      <p>Günde on beş dakika yeterli.</p>
+      <table>
+        <thead><tr><th>Gün</th><th>Ne yapacaksın</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Telefona 2 dakikalık kayıt: bugün ne yaptın</td></tr>
+          <tr><td>2</td><td>5 dakika shadowing: bir videoyu eş zamanlı tekrarla</td></tr>
+          <tr><td>3</td><td>10 cümleyi özne ve fiille başlatma alıştırması</td></tr>
+          <tr><td>4</td><td>5 eşyayı ismini söylemeden tarif et</td></tr>
+          <tr><td>5</td><td>Düşünme kalıplarını sesli tekrarla ve cümle içinde kullan</td></tr>
+          <tr><td>6</td><td>Haftanın 5 kalıbını farklı cümlelerde 5 kez kullan</td></tr>
+          <tr><td>7</td><td>1. günün kaydını dinle, aynı konuyu yeniden anlat</td></tr>
+        </tbody>
+      </table>
+      <p>Yedinci gün çok önemli. İlerlemeyi ölçemezsen devam etmezsin.</p>
+
+      <h2>Sık sorulan sorular</h2>
+      <div class="faq">
+        <div class="q">Kaç kelime bilirsem rahat konuşabilirim?</div>
+        <p>Günlük sohbetin büyük kısmı yaklaşık 800 ila 1000 aktif kelimeyle döner. Muhtemelen bu kelimeleri zaten biliyorsun. Sorun kelime sayısı değil, o kelimelere ne kadar hızlı ulaşabildiğin.</p>
+        <div class="q">Aksanım kötü, bu yüzden mi takılıyorum?</div>
+        <p>Hayır. Aksan anlaşılırlığı çok az etkiler, akıcılığı ise hiç etkilemez. Vurguyu yanlış yere koymak anlaşılırlığı aksandan çok daha fazla etkiler. Aksanını değil, vurgunu çalış.</p>
+        <div class="q">Kendi kendime konuşmak gerçekten işe yarıyor mu?</div>
+        <p>Evet, çünkü takılmanın sebebi karşındaki insan değil, kelimeye ulaşma hızın. Bu hız yalnızken de artar. Konuşma partneri bulmak elbette daha iyi ama şart değil.</p>
+        <div class="q">Ne kadar sürede düzelir?</div>
+        <p>Düzenli çalışırsan ilk gözle görülür fark üç dört haftada gelir. Bu fark genelde şudur: cümleye başlamadan önceki bekleme süren kısalır.</p>
+      </div>
+
+      <h2>Son olarak</h2>
+      <p>İngilizce konuşurken takılıyorsan bu, dil yeteneğin olmadığı anlamına gelmiyor. Yıllarca sana dilin bir bilgi konusu olduğu öğretildi, oysa konuşmak bir beceri. Bilgi çalışmayla gelir, beceri tekrarla.</p>
+      <p>Bugün sadece bir tanesini dene: iki dakikalık kayıt. En zoru ilk kayıt.</p>
+
+      <div class="ebook">
+        <div class="k">Ücretsiz e-kitap</div>
+        <h3>Dilim Tutuldu</h3>
+        <p>Konuşma çekingenliğini daha derinlemesine ele aldığım ücretsiz e-kitabımı indir ve takılmadan konuşmaya bugün başla.</p>
+        <a class="btn btn-primary" href="dilim-tutuldu.pdf" download style="position:relative">E-kitabı İndir →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="padding:0 0 90px">
+    <div class="container" style="max-width:720px;display:flex;gap:16px;flex-wrap:wrap">
+      <a class="btn btn-primary" href="index.html#randevu">Birlikte çalışalım — Tanışalım</a>
+      <a class="btn btn-ghost" href="index.html#blog">← Diğer yazılar</a>
+    </div>
+  </section>
+</article>
+
+<footer>
+  <div class="container foot-inner">
+    <a class="brand" href="index.html">
+      <svg class="icon" width="28" height="33" viewBox="0 0 96 110"><polygon points="0,110 0,0 58,0 96,55 58,110" fill="#EEEDF8"/><polygon points="0,0 58,0 96,55" fill="#6663B8"/></svg>
+      <span class="wm"><b>Dicle</b><span>ENGLISH</span></span>
+    </a>
+    <nav class="fnav">
+      <a href="index.html#about">Hakkında</a>
+      <a href="index.html#dersler">Nasıl Çalışıyoruz</a>
+      <a href="index.html#randevu">Tanışalım</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#follow">İletişim &amp; Topluluk</a>
+      <a href="gizlilik.html">Gizlilik &amp; KVKK</a>
+    </nav>
+  </div>
+  <div class="container"><div class="copy">© 2026 Dicle English · learn · practice · speak</div></div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach((e)=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*0.07)+'s';io.observe(el);});
+</script>
+</body>
+</html>
