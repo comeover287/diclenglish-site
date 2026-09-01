@@ -117,4 +117,218 @@
   .about-grid p strong{font-weight:700;color:var(--text)}
   .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
   .stat{background:var(--panel);padding:30px 26px}
-  .stat b{display:block;font-size:27px;font-weight:800;letter-spacing:-0.5
+  .stat b{display:block;font-size:27px;font-weight:800;letter-spacing:-0.5px;line-height:1.1}
+  .stat span{font-size:13px;color:var(--purple-light);font-weight:300;margin-top:8px;display:block}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+  .pillar{
+    background:var(--panel);border:1px solid var(--line-dark);padding:38px 32px;border-radius:3px;
+    position:relative;overflow:hidden;transition:border-color .3s,transform .3s;
+  }
+  .pillar::after{content:"";position:absolute;top:0;right:0;width:70px;height:70px;background:var(--line-dark);clip-path:polygon(100% 0,0 0,100% 100%);transition:background .3s}
+  .pillar:hover{border-color:var(--purple);transform:translateY(-4px)}
+  .pillar:hover::after{background:var(--purple-deep)}
+  .pillar .num{font-size:13px;color:var(--purple);letter-spacing:3px;font-weight:500}
+  .pillar h3{font-weight:800;font-size:30px;letter-spacing:-1px;margin:14px 0 12px}
+  .pillar p{font-size:15px;font-weight:300;color:#bfbde0}
+
+  #blog{background:var(--panel);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+  .blog-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+  .post{
+    background:var(--bg);border:1px solid var(--line-dark);border-radius:3px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .3s,border-color .3s;
+  }
+  .post:hover{transform:translateY(-5px);border-color:var(--purple)}
+  .post .thumb{height:140px;position:relative;background:var(--panel);border-bottom:1px solid var(--line-dark)}
+  .post .thumb .g1{position:absolute;inset:0;clip-path:polygon(0 0,55% 0,0 100%);background:var(--line-dark)}
+  .post .thumb .ic{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+  .post .body{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1}
+  .post .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--purple);font-weight:500}
+  .post h3{font-weight:700;font-size:20px;letter-spacing:-.5px;margin:10px 0 10px;line-height:1.25}
+  .post p{font-size:14px;font-weight:300;color:#a9a7cf;flex:1}
+  .post .meta{margin-top:18px;font-size:12px;color:var(--purple-deep);display:flex;justify-content:space-between;align-items:center}
+  .post .read{color:var(--purple-light);font-weight:500}
+  .blog-foot{margin-top:42px;text-align:center}
+
+  #follow{text-align:center;overflow:hidden}
+  .follow-card{
+    position:relative;background:var(--panel);border:1px solid var(--line-dark);border-radius:4px;
+    padding:74px 32px;overflow:hidden;
+  }
+  .follow-card .corner-tl{position:absolute;top:0;left:0;width:120px;height:120px;background:var(--line-dark);clip-path:polygon(0 0,100% 0,0 100%)}
+  .follow-card .corner-br{position:absolute;bottom:0;right:0;width:120px;height:120px;background:var(--purple-deep);opacity:.5;clip-path:polygon(100% 100%,0 100%,100% 0)}
+  .follow-card .eyebrow{margin-bottom:18px}
+  .follow-card h2{font-weight:800;font-size:clamp(30px,4.5vw,48px);letter-spacing:-1.5px;position:relative}
+  .follow-card p{font-size:18px;font-weight:300;color:#bfbde0;max-width:520px;margin:18px auto 0;position:relative}
+  .socials{margin-top:40px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative}
+  .soc{
+    display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;
+    padding:13px 22px;border:1px solid var(--line-dark);border-radius:2px;color:var(--text);
+    transition:background .25s,border-color .25s,transform .2s;
+  }
+  .soc:hover{border-color:var(--purple);background:rgba(102,99,184,.12);transform:translateY(-2px)}
+  .soc svg{width:18px;height:18px;fill:var(--purple-light)}
+  .handle{margin-top:30px;font-size:14px;letter-spacing:4px;color:var(--purple);font-weight:300;position:relative}
+  .contact-mail{position:relative;display:inline-flex;align-items:center;gap:9px;margin-top:30px;font-size:15px;font-weight:500;color:var(--text);border-bottom:1px solid var(--line-dark);padding-bottom:4px;transition:border-color .25s,color .25s}
+  .contact-mail:hover{border-color:var(--purple);color:var(--purple-light)}
+  .contact-mail svg{width:17px;height:17px;fill:var(--purple-light)}
+
+  footer{border-top:1px solid var(--line-dark);padding:46px 0 40px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot-inner .brand .wm b{font-size:20px}
+  footer .fnav{display:flex;gap:26px;font-size:13px;color:var(--purple-light)}
+  footer .fnav a:hover{color:var(--text)}
+  footer .copy{font-size:12px;color:var(--purple-deep);margin-top:26px;letter-spacing:.5px}
+
+  #randevu{background:linear-gradient(180deg,transparent,rgba(18,17,42,.4),transparent)}
+  .booking{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:46px;align-items:stretch}
+  .bk-panel{background:var(--panel);border:1px solid var(--line-dark);border-radius:4px;padding:30px}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .cal-head .m{font-size:19px;font-weight:700;letter-spacing:-.3px}
+  .cal-nav{display:flex;gap:8px}
+  .cal-nav button{width:34px;height:34px;border:1px solid var(--line-dark);background:transparent;color:var(--text);border-radius:2px;cursor:pointer;font-size:16px;transition:border-color .2s,background .2s}
+  .cal-nav button:hover{border-color:var(--purple);background:rgba(102,99,184,.1)}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .cal-grid .dow{font-size:11px;text-align:center;color:var(--purple-deep);font-weight:500;padding:4px 0;letter-spacing:.5px}
+  .cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:3px;cursor:pointer;border:1px solid transparent;transition:background .15s,border-color .15s,color .15s}
+  .cal-day:hover:not(.disabled){background:rgba(102,99,184,.14);border-color:var(--purple)}
+  .cal-day.disabled{color:#2c2a4a;cursor:not-allowed}
+  .cal-day.empty{cursor:default}
+  .cal-day.selected{background:var(--purple);color:#0A0918;font-weight:700}
+  .bk-side h3{font-size:18px;font-weight:700;margin-bottom:6px}
+  .bk-side .hint{font-size:13px;color:var(--purple-light);font-weight:300;margin-bottom:20px}
+  .slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+  .slot{padding:10px 0;text-align:center;font-size:14px;border:1px solid var(--line-dark);border-radius:2px;background:transparent;color:var(--text);cursor:pointer;transition:border-color .2s,background .2s}
+  .slot:hover{border-color:var(--purple)}
+  .slot.selected{background:var(--purple);color:#0A0918;font-weight:700;border-color:var(--purple)}
+  .bk-field{margin-bottom:14px}
+  .bk-field label{display:block;font-size:12px;letter-spacing:1px;color:var(--purple-light);margin-bottom:6px;text-transform:uppercase}
+  .bk-field input,.bk-field select{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--line-dark);border-radius:2px;color:var(--text);font-family:'Epilogue',sans-serif;font-size:15px}
+  .bk-field input:focus,.bk-field select:focus{outline:none;border-color:var(--purple)}
+  .bk-field select{appearance:none;cursor:pointer}
+  .bk-summary{font-size:14px;color:var(--purple-light);margin:6px 0 16px;min-height:20px}
+  .bk-summary b{color:var(--text)}
+  #bkConfirm{width:100%;justify-content:center;border:0;cursor:pointer;font-family:'Epilogue',sans-serif}
+  #bkConfirm:disabled{opacity:.4;cursor:not-allowed;transform:none}
+  .bk-note{font-size:12px;color:var(--purple-deep);margin-top:14px;text-align:center;font-weight:300}
+
+  @media(max-width:880px){
+    nav.links{display:none}
+    .burger{display:block}
+    .hero{padding:80px 0 90px}
+    .hero .diag,.hero .diag2{display:none}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-deco{display:none}
+    .about-grid,.pillars,.blog-grid{grid-template-columns:1fr}
+    .blog-grid{gap:20px}
+    .booking{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){
+    .container{padding:0 20px}
+    .stats{grid-template-columns:1fr 1fr}
+    .follow-card{padding:54px 22px}
+  }
+  .legal h2{font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.3px;margin:30px 0 10px}
+  .legal a{color:var(--purple-light)}
+  .legal p{margin-bottom:14px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Dicle English">
+      <svg class="icon" width="34" height="40" viewBox="0 0 96 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="0,110 0,0 58,0 96,55 58,110" fill="#EEEDF8"/>
+        <polygon points="0,0 58,0 96,55" fill="#6663B8"/>
+      </svg>
+      <span class="wm"><b>Dicle</b><span>ENGLISH</span></span>
+    </a>
+    <nav class="links">
+      <a href="index.html#about">Hakkında</a>
+      <a href="index.html#dersler">Nasıl Çalışıyoruz</a>
+      <a href="index.html#randevu">Tanışalım</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#follow">İletişim &amp; Topluluk</a>
+    </nav>
+    <a class="nav-cta" href="index.html#randevu">Tanışalım</a>
+  </div>
+</header>
+
+<section class="hero" id="top" style="padding:90px 0 50px">
+  <div class="diag"></div>
+  <div class="diag2"></div>
+  <div class="container" style="position:relative;z-index:2">
+    <div class="sec-label reveal" style="margin-bottom:22px">Yasal</div>
+    <h1 class="reveal" style="font-weight:800;font-size:clamp(36px,5vw,60px);line-height:1.05;letter-spacing:-2px;max-width:820px">Gizlilik Politikası &amp; KVKK Aydınlatma Metni</h1>
+  </div>
+</section>
+
+<section style="padding:10px 0 100px">
+  <div class="container" style="max-width:760px">
+    <div class="reveal legal" style="font-size:16px;font-weight:300;line-height:1.75;color:#cfcdec">
+
+      <p style="margin-bottom:26px">Bu metin, Dicle English (diclenglish.com) üzerinden paylaştığınız kişisel verilerin 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) kapsamında nasıl işlendiğini açıklar.</p>
+
+      <h2>1. Veri Sorumlusu</h2>
+      <p>Kişisel verileriniz, bireysel öğretmen sıfatıyla <strong>Dicle Deniz Mart</strong> (“veri sorumlusu”) tarafından işlenmektedir. İletişim: <a href="mailto:dicledenizmenglish@gmail.com">dicledenizmenglish@gmail.com</a></p>
+
+      <h2>2. İşlenen Kişisel Veriler</h2>
+      <p>Randevu, iletişim ya da e-kitap/bülten talebinde bulunduğunuzda paylaştığınız şu veriler işlenebilir: ad-soyad, e-posta adresi, telefon numarası (paylaşmanız hâlinde), randevu tarih/saat bilgisi ve mesaj içeriğiniz. Ücretsiz e-kitap talep ederken yalnızca e-posta adresiniz ve verdiğiniz açık rıza kaydı işlenir.</p>
+
+      <h2>3. Verilerin İşlenme Amacı</h2>
+      <p>Verileriniz; randevu ve iletişim taleplerinizi değerlendirmek, sizinle iletişime geçip dönüş yapmak, talep ettiğiniz eğitim/danışmanlık hizmetini planlamak ve sunmak, talep etmeniz hâlinde ücretsiz e-kitabı iletmek ve varsa yasal yükümlülükleri yerine getirmek amacıyla işlenir. Açık rıza vermeniz hâlinde, e-posta adresiniz ayrıca hizmetlere, içeriklere ve kampanyalara ilişkin bilgilendirme ve tanıtım iletileri göndermek amacıyla da kullanılabilir.</p>
+
+      <h2>4. Hukuki Sebep</h2>
+      <p>Verileriniz, KVKK m.5 uyarınca; talebinize karşılık verilmesi ve hizmetin sunulabilmesi (sözleşmenin kurulması/ifası) ile veri sorumlusunun meşru menfaati hukuki sebeplerine dayanılarak işlenir. Bilgilendirme ve tanıtım (pazarlama) amaçlı iletişim ise yalnızca tarafınızca verilecek <strong>açık rıza</strong> hâlinde yapılır. E-kitap formunda yer alan onay kutusunu işaretlemeniz, bu kapsamda açık rıza verdiğiniz anlamına gelir. Rızanızı dilediğiniz zaman geri çekebilir, listeden çıkmayı talep edebilirsiniz.</p>
+
+      <h2>5. Verilerin Aktarımı ve Hizmet Sağlayıcılar</h2>
+      <p>Randevu sistemi, Google tarafından sunulan “Randevu Zamanlama” (Google Calendar Appointment Schedule) hizmeti üzerinden çalışır; randevu sırasında girdiğiniz bilgiler bu hizmet aracılığıyla işlenir. E-kitap ve bülten kayıt formu, Tally form hizmeti üzerinden çalışır; formu doldurduğunuzda e-posta adresiniz ve rıza kaydınız Tally altyapısında saklanır. Web sitesi, Cloudflare altyapısında barındırılmaktadır. Bu hizmet sağlayıcıların (Google, Tally, Cloudflare) sunucuları yurt dışında bulunabilir; bu nedenle verileriniz, ilgili hizmetlerin işletilmesi kapsamında yurt dışında işlenebilir veya saklanabilir. Verileriniz, bu metinde belirtilen amaçlar dışında üçüncü kişilerle paylaşılmaz; ticari amaçla satılmaz.</p>
+
+      <h2>6. Saklama Süresi</h2>
+      <p>Verileriniz, işlenme amacının gerektirdiği süre boyunca ve ilgili mevzuatta öngörülen süreler kadar saklanır; bu sürelerin sonunda silinir, yok edilir veya anonim hâle getirilir.</p>
+
+      <h2>7. Haklarınız (KVKK m.11)</h2>
+      <p>Veri sahibi olarak; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse buna ilişkin bilgi talep etme, işlenme amacını öğrenme, eksik veya yanlış işlenmişse düzeltilmesini, şartlar oluştuğunda silinmesini veya yok edilmesini isteme, işlenmesine itiraz etme ve verileriniz kanuna aykırı işlenmişse zararın giderilmesini talep etme haklarına sahipsiniz.</p>
+      <p>Bu haklarınızı kullanmak, açık rızanızı geri çekmek veya bülten/tanıtım listesinden çıkmak için <a href="mailto:dicledenizmenglish@gmail.com">dicledenizmenglish@gmail.com</a> adresinden talepte bulunabilirsiniz.</p>
+
+      <h2>8. Çerezler</h2>
+      <p>Bu site, sizi takip eden pazarlama çerezleri kullanmaz. Yalnızca gömülü Google randevu takvimi gibi üçüncü taraf hizmetler, kendi işleyişleri için çerez kullanabilir.</p>
+
+      <p style="margin-top:34px;font-size:13px;color:var(--purple-deep)">Son güncelleme: Eylül 2026. Bu metin bilgilendirme amaçlıdır ve zaman zaman güncellenebilir.</p>
+    </div>
+
+    <div class="reveal" style="margin-top:36px;display:flex;gap:16px;flex-wrap:wrap">
+      <a class="btn btn-ghost" href="index.html">← Ana Sayfa</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-inner">
+    <a class="brand" href="index.html">
+      <svg class="icon" width="28" height="33" viewBox="0 0 96 110"><polygon points="0,110 0,0 58,0 96,55 58,110" fill="#EEEDF8"/><polygon points="0,0 58,0 96,55" fill="#6663B8"/></svg>
+      <span class="wm"><b>Dicle</b><span>ENGLISH</span></span>
+    </a>
+    <nav class="fnav">
+      <a href="index.html#about">Hakkında</a>
+      <a href="index.html#dersler">Nasıl Çalışıyoruz</a>
+      <a href="index.html#randevu">Tanışalım</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#follow">İletişim &amp; Topluluk</a>
+      <a href="gizlilik.html">Gizlilik &amp; KVKK</a>
+    </nav>
+  </div>
+  <div class="container"><div class="copy">© 2026 Dicle English · learn · practice · speak</div></div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e)=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i%4*0.08)+'s'; io.observe(el); });
+</script>
+
+</body>
+</html>
