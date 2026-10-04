@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İngilizcede Kelimeler Neden Ters Dizilir? Cümle Kurmanın Mantığı</title>
+<meta name="description" content="Kelimeleri biliyorsun ama cümle kuramıyorsun. Türkçe ile İngilizce cümlenin sırası neden bu kadar farklı, ve bir cümle adım adım nasıl kurulur? Örneklerle anlattım.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0A0918">
+<style>
+  :root{
+    --bg:#0A0918;
+    --panel:#12112A;
+    --line-dark:#1E1C3A;
+    --purple-deep:#3D3A8C;
+    --purple:#6663B8;
+    --purple-light:#9896D4;
+    --text:#EEEDF8;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Epilogue',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* subtle grain / glow atmosphere */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background:
+      radial-gradient(900px 500px at 12% -5%, rgba(102,99,184,0.14), transparent 60%),
+      radial-gradient(700px 500px at 100% 100%, rgba(61,58,140,0.10), transparent 55%);
+    pointer-events:none;z-index:0;
+  }
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1}
+
+  /* ===== ICON (geometrik arrow motifi) ===== */
+  .icon{display:inline-block;vertical-align:middle}
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(10,9,24,0.72);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .wm{display:flex;flex-direction:column;line-height:1}
+  .brand .wm b{font-weight:800;font-size:24px;letter-spacing:-1px}
+  .brand .wm span{font-weight:300;font-size:9px;letter-spacing:6px;color:var(--purple);margin-top:3px}
+  nav.links{display:flex;align-items:center;gap:34px}
+  nav.links a{font-size:14px;font-weight:500;color:var(--purple-light);transition:color .2s}
+  nav.links a:hover{color:var(--text)}
+  .nav-cta{
+    font-size:13px;font-weight:700;letter-spacing:.5px;
+    padding:10px 20px;border:1px solid var(--purple);border-radius:2px;color:var(--text);
+    transition:background .25s,color .25s;
+  }
+  .nav-cta:hover{background:var(--purple);color:#0A0918}
+  .burger{display:none;background:none;border:0;cursor:pointer;color:var(--text)}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;padding:120px 0 130px;overflow:hidden}
+  .hero .diag{
+    position:absolute;top:0;right:0;width:46%;height:100%;
+    background:var(--panel);
+    clip-path:polygon(28% 0,100% 0,100% 100%,0 100%);
+    z-index:0;
+  }
+  .hero .diag2{
+    position:absolute;top:0;right:0;width:46%;height:100%;
+    border-left:1px solid var(--line-dark);
+    clip-path:polygon(28% 0,29% 0,1% 100%,0 100%);
+  }
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  .eyebrow{font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--purple);margin-bottom:26px;font-weight:500}
+  .hero h1{font-weight:800;font-size:clamp(48px,7vw,90px);line-height:.96;letter-spacing:-3px}
+  .hero h1 .dot{display:inline-block;width:13px;height:13px;border-radius:50%;background:var(--purple);vertical-align:middle;margin:0 6px 16px}
+  .hero .sub{margin-top:28px;font-size:clamp(20px,2.4vw,30px);font-weight:300}
+  .hero .sub i{font-style:italic;color:var(--purple-light)}
+  .hero .amp{color:var(--purple-deep)}
+  .hero-cta{margin-top:42px;display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:15px;font-weight:700;letter-spacing:.3px;
+    padding:15px 28px;border-radius:2px;transition:transform .2s,background .25s,color .25s,border-color .25s;
+  }
+  .btn-primary{background:var(--purple);color:#0A0918}
+  .btn-primary:hover{background:var(--purple-light);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line-dark);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--purple);transform:translateY(-2px)}
+  .hero-deco{display:flex;justify-content:center;align-items:center}
+  .hero-deco .big-icon{filter:drop-shadow(0 20px 50px rgba(102,99,184,.25))}
+
+  /* reveal anim */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:96px 0;position:relative}
+  .sec-label{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:22px}
+  .sec-label::before{content:"";width:34px;height:1px;background:var(--purple-deep)}
+  h2.sec-title{font-weight:800;font-size:clamp(32px,4.4vw,52px);letter-spacing:-1.5px;line-height:1.05;max-width:680px}
+
+  /* ===== ABOUT ===== */
+  #about{background:linear-gradient(180deg,transparent,rgba(18,17,42,.45),transparent)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:40px}
+  .about-grid p{font-size:18px;font-weight:300;color:#cfcdec;margin-bottom:20px}
+  .about-grid p strong{font-weight:700;color:var(--text)}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
+  .stat{background:var(--panel);padding:30px 26px}
+  .stat b{display:block;font-size:27px;font-weight:800;letter-spacing:-0.5px;line-height:1.1}
+  .stat span{font-size:13px;color:var(--purple-light);font-weight:300;margin-top:8px;display:block}
+
+  /* ===== PILLARS / DERSLER ===== */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+  .pillar{
+    background:var(--panel);border:1px solid var(--line-dark);padding:38px 32px;border-radius:3px;
+    position:relative;overflow:hidden;transition:border-color .3s,transform .3s;
+  }
+  .pillar::after{content:"";position:absolute;top:0;right:0;width:70px;height:70px;background:var(--line-dark);clip-path:polygon(100% 0,0 0,100% 100%);transition:background .3s}
+  .pillar:hover{border-color:var(--purple);transform:translateY(-4px)}
+  .pillar:hover::after{background:var(--purple-deep)}
+  .pillar .num{font-size:13px;color:var(--purple);letter-spacing:3px;font-weight:500}
+  .pillar h3{font-weight:800;font-size:30px;letter-spacing:-1px;margin:14px 0 12px}
+  .pillar p{font-size:15px;font-weight:300;color:#bfbde0}
+
+  /* ===== BLOG ===== */
+  #blog{background:var(--panel);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+  .blog-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+  .post{
+    background:var(--bg);border:1px solid var(--line-dark);border-radius:3px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .3s,border-color .3s;
+  }
+  .post:hover{transform:translateY(-5px);border-color:var(--purple)}
+  .post .thumb{height:150px;position:relative;background:var(--panel);border-bottom:1px solid var(--line-dark);overflow:hidden}
+  .post .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .post.soon{opacity:.5}
+  .post.soon .read{color:var(--purple-deep)}
+  a.post-link{display:block;color:inherit;text-decoration:none}
+  .post .thumb .g1{position:absolute;inset:0;clip-path:polygon(0 0,55% 0,0 100%);background:var(--line-dark)}
+  .post .thumb .ic{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+  .post .body{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1}
+  .post .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--purple);font-weight:500}
+  .post h3{font-weight:700;font-size:20px;letter-spacing:-.5px;margin:10px 0 10px;line-height:1.25}
+  .post p{font-size:14px;font-weight:300;color:#a9a7cf;flex:1}
+  .post .meta{margin-top:18px;font-size:12px;color:var(--purple-deep);display:flex;justify-content:space-between;align-items:center}
+  .post .read{color:var(--purple-light);font-weight:500}
+  .blog-foot{margin-top:42px;text-align:center}
+
+  /* ===== FOLLOW / SOCIAL CTA ===== */
+  #follow{text-align:center;overflow:hidden}
+  .follow-card{
+    position:relative;background:var(--panel);border:1px solid var(--line-dark);border-radius:4px;
+    padding:74px 32px;overflow:hidden;
+  }
+  .follow-card .corner-tl{position:absolute;top:0;left:0;width:120px;height:120px;background:var(--line-dark);clip-path:polygon(0 0,100% 0,0 100%)}
+  .follow-card .corner-br{position:absolute;bottom:0;right:0;width:120px;height:120px;background:var(--purple-deep);opacity:.5;clip-path:polygon(100% 100%,0 100%,100% 0)}
+  .follow-card .eyebrow{margin-bottom:18px}
+  .follow-card h2{font-weight:800;font-size:clamp(30px,4.5vw,48px);letter-spacing:-1.5px;position:relative}
+  .follow-card p{font-size:18px;font-weight:300;color:#bfbde0;max-width:520px;margin:18px auto 0;position:relative}
+  .socials{margin-top:40px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative}
+  .soc{
+    display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;
+    padding:13px 22px;border:1px solid var(--line-dark);border-radius:2px;color:var(--text);
+    transition:background .25s,border-color .25s,transform .2s;
+  }
+  .soc:hover{border-color:var(--purple);background:rgba(102,99,184,.12);transform:translateY(-2px)}
+  .soc svg{width:18px;height:18px;fill:var(--purple-light)}
+  .handle{margin-top:30px;font-size:14px;letter-spacing:4px;color:var(--purple);font-weight:300;position:relative}
+  .contact-mail{position:relative;display:inline-flex;align-items:center;gap:9px;margin-top:30px;font-size:15px;font-weight:500;color:var(--text);border-bottom:1px solid var(--line-dark);padding-bottom:4px;transition:border-color .25s,color .25s}
+  .contact-mail:hover{border-color:var(--purple);color:var(--purple-light)}
+  .contact-mail svg{width:17px;height:17px;fill:var(--purple-light)}
+
+  /* ===== FOOTER ===== */
+  footer{border-top:1px solid var(--line-dark);padding:46px 0 40px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot-inner .brand .wm b{font-size:20px}
+  footer .fnav{display:flex;gap:26px;font-size:13px;color:var(--purple-light)}
+  footer .fnav a:hover{color:var(--text)}
+  footer .copy{font-size:12px;color:var(--purple-deep);margin-top:26px;letter-spacing:.5px}
+
+  /* ===== RANDEVU / DERS AL ===== */
+  #randevu{background:linear-gradient(180deg,transparent,rgba(18,17,42,.4),transparent)}
+  .booking{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:46px;align-items:stretch}
+  .bk-panel{background:var(--panel);border:1px solid var(--line-dark);border-radius:4px;padding:30px}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .cal-head .m{font-size:19px;font-weight:700;letter-spacing:-.3px}
+  .cal-nav{display:flex;gap:8px}
+  .cal-nav button{width:34px;height:34px;border:1px solid var(--line-dark);background:transparent;color:var(--text);border-radius:2px;cursor:pointer;font-size:16px;transition:border-color .2s,background .2s}
+  .cal-nav button:hover{border-color:var(--purple);background:rgba(102,99,184,.1)}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .cal-grid .dow{font-size:11px;text-align:center;color:var(--purple-deep);font-weight:500;padding:4px 0;letter-spacing:.5px}
+  .cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:3px;cursor:pointer;border:1px solid transparent;transition:background .15s,border-color .15s,color .15s}
+  .cal-day:hover:not(.disabled){background:rgba(102,99,184,.14);border-color:var(--purple)}
+  .cal-day.disabled{color:#2c2a4a;cursor:not-allowed}
+  .cal-day.empty{cursor:default}
+  .cal-day.selected{background:var(--purple);color:#0A0918;font-weight:700}
+  .bk-side h3{font-size:18px;font-weight:700;margin-bottom:6px}
+  .bk-side .hint{font-size:13px;color:var(--purple-light);font-weight:300;margin-bottom:20px}
+  .slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+  .slot{padding:10px 0;text-align:center;font-size:14px;border:1px solid var(--line-dark);border-radius:2px;background:transparent;color:var(--text);cursor:pointer;transition:border-color .2s,background .2s}
+  .slot:hover{border-color:var(--purple)}
+  .slot.selected{background:var(--purple);color:#0A0918;font-weight:700;border-color:var(--purple)}
+  .bk-field{margin-bottom:14px}
+  .bk-field label{display:block;font-size:12px;letter-spacing:1px;color:var(--purple-light);margin-bottom:6px;text-transform:uppercase}
+  .bk-field input,.bk-field select{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--line-dark);border-radius:2px;color:var(--text);font-family:'Epilogue',sans-serif;font-size:15px}
+  .bk-field input:focus,.bk-field select:focus{outline:none;border-color:var(--purple)}
+  .bk-field select{appearance:none;cursor:pointer}
+  .bk-summary{font-size:14px;color:var(--purple-light);margin:6px 0 16px;min-height:20px}
+  .bk-summary b{color:var(--text)}
+  #bkConfirm{width:100%;justify-content:center;border:0;cursor:pointer;font-family:'Epilogue',sans-serif}
+  #bkConfirm:disabled{opacity:.4;cursor:not-allowed;transform:none}
+  .bk-note{font-size:12px;color:var(--purple-deep);margin-top:14px;text-align:center;font-weight:300}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:880px){
+    nav.links{display:none}
+    .burger{display:block}
+    .hero{padding:80px 0 90px}
+    .hero .diag,.hero .diag2{display:none}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-deco{display:none}
+    .about-grid,.pillars,.blog-grid{grid-template-columns:1fr}
+    .blog-grid{gap:20px}
+    .booking{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){
+    .container{padding:0 20px}
+    .stats{grid-template-columns:1fr 1fr}
+    .follow-card{padding:54px 22px}
+  }
+
+  .badge{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--purple-light);background:rgba(102,99,184,.14);border:1px solid var(--line-dark);padding:6px 14px;border-radius:2px}
+  .post-cover{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line-dark);margin:0}
+  .post-meta{font-size:13px;color:var(--purple-deep);letter-spacing:.5px;margin-top:18px}
+  .article{font-size:18px;font-weight:300;line-height:1.8;color:#cfcdec}
+  .article p{margin-bottom:22px}
+  .article h2{font-size:27px;font-weight:800;letter-spacing:-0.5px;color:var(--text);margin:48px 0 16px;line-height:1.2}
+  .article h3{font-size:21px;font-weight:700;color:var(--text);margin:34px 0 12px}
+  .article strong{color:var(--text);font-weight:700}
+  .article ul{list-style:none;padding:0;margin:0 0 22px}
+  .article ul li{padding-left:22px;position:relative;margin-bottom:10px}
+  .article ul li::before{content:"";position:absolute;left:0;top:12px;width:7px;height:7px;border-radius:50%;background:var(--purple)}
+  .article .ex{background:var(--panel);border:1px solid var(--line-dark);border-left:3px solid var(--purple);border-radius:4px;padding:14px 18px;margin:0 0 22px;font-size:17px}
+  .article blockquote{border-left:3px solid var(--purple);padding:8px 0 8px 22px;margin:28px 0;font-size:22px;color:var(--text);font-style:italic;font-weight:300;line-height:1.5}
+  .article table{width:100%;border-collapse:collapse;margin:8px 0 28px;font-size:16px;border:1px solid var(--line-dark);border-radius:8px;overflow:hidden}
+  .article th,.article td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line-dark)}
+  .article thead th{background:var(--panel);color:var(--purple-light);font-weight:600;text-transform:uppercase;letter-spacing:1px;font-size:12px}
+  .article tbody tr:last-child td{border-bottom:0}
+  .article td:first-child{color:var(--text);font-weight:700;width:64px;text-align:center}
+  .faq{margin-top:8px}
+  .faq .q{font-size:18px;font-weight:700;color:var(--text);margin:24px 0 6px}
+  .ebook{margin:44px 0 8px;background:linear-gradient(135deg,rgba(102,99,184,.16),rgba(61,58,140,.10));border:1px solid var(--purple-deep);border-radius:12px;padding:34px 30px;position:relative;overflow:hidden}
+  .ebook::after{content:"";position:absolute;top:-30px;right:-30px;width:130px;height:130px;background:var(--line-dark);opacity:.5;clip-path:polygon(100% 0,0 0,100% 100%)}
+  .ebook .k{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--purple-light);font-weight:600}
+  .ebook h3{font-size:26px;font-weight:800;letter-spacing:-0.5px;color:var(--text);margin:10px 0 8px;position:relative}
+  .ebook p{font-size:16px;color:#bfbde0;font-weight:300;margin:0 0 20px;max-width:520px;position:relative}
+
+  .tr-en{border-left:3px solid var(--line-dark);padding:6px 0 6px 18px;margin:0 0 24px;font-size:19px;line-height:2}
+  .tr-en .row{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+  .tr-en .lg{font-size:11px;letter-spacing:2px;color:var(--purple-deep);font-weight:700;width:22px}
+  .tr-en .s{color:var(--text);font-weight:700}
+  .tr-en .v{color:var(--purple-light);font-weight:700;text-decoration:underline;text-decoration-color:var(--purple);text-underline-offset:4px}
+  .tr-en .t{color:var(--purple-light);font-style:italic}
+  .wrong{color:#8f8db8;text-decoration:line-through}
+  .right{color:var(--text);font-weight:700}
+  .article .pair{margin:0 0 22px}
+  .article .pair div{margin-bottom:4px}
+  .article .pair .lb{display:inline-block;width:64px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--purple-light);font-weight:700}
+  .article .note{background:rgba(102,99,184,.12);border-left:3px solid var(--purple);padding:16px 20px;margin:26px 0;font-size:17px;color:var(--text);border-radius:0 4px 4px 0}
+  .article ol{margin:0 0 22px;padding-left:26px}
+  .article ol li{margin-bottom:10px;padding-left:6px}
+  .article td:first-child{width:110px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Dicle English">
+      <svg class="icon" width="34" height="40" viewBox="0 0 96 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="0,110 0,0 58,0 96,55 58,110" fill="#EEEDF8"/>
+        <polygon points="0,0 58,0 96,55" fill="#6663B8"/>
+      </svg>
+      <span class="wm"><b>Dicle</b><span>ENGLISH</span></span>
+    </a>
+    <nav class="links">
+      <a href="index.html#about">Hakkında</a>
+      <a href="index.html#dersler">Nasıl Çalışıyoruz</a>
+      <a href="index.html#randevu">Tanışalım</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#follow">İletişim &amp; Topluluk</a>
+    </nav>
+    <a class="nav-cta" href="index.html#randevu">Tanışalım</a>
+  </div>
+</header>
+
+<article>
+  <section style="padding:70px 0 30px">
+    <div class="container" style="max-width:820px">
+      <a href="index.html#blog" style="font-size:14px;color:var(--purple-light);font-weight:500">← Bloga dön</a>
+      <div style="margin:22px 0 18px"><span class="badge reveal">Konuşma &amp; Akıcılık</span></div>
+      <h1 class="reveal" style="font-weight:800;font-size:clamp(32px,5vw,56px);line-height:1.08;letter-spacing:-1.5px">İngilizcede kelimeler neden ters dizilir?</h1>
+      <div class="post-meta reveal">Dicle Deniz Mart · 8 dk okuma</div>
+    </div>
+  </section>
+
+  <section style="padding:10px 0 0">
+    <div class="container" style="max-width:920px">
+      <img class="post-cover reveal" src="blog-cover-cumleni-kur.jpg" alt="İngilizcede kelimeler neden ters dizilir? Cümleni Kur e-kitabı kapağı" width="1200" height="675">
+    </div>
+  </section>
+
+  <section style="padding:46px 0 90px">
+    <div class="container article" style="max-width:720px">
+
+      <p>“Kelimeleri biliyorum ama cümleye dökemiyorum.” Bu, en sık duyduğum cümlelerden biri. Sebebi çoğu zaman kelime eksikliği değil. Türkçe ile İngilizce, cümleyi neredeyse ayna gibi ters kuran iki dil ve kafandaki Türkçe cümleyi kelime kelime çevirdiğinde ortaya İngilizce kelimelerle yazılmış bir Türkçe cümle çıkıyor.</p>
+
+      <h2>Küçük bir deney</h2>
+      <p>Şu beş kelimeyi hepsini biliyorsun: <strong>I, coffee, every, drink, morning</strong>. Şimdi bunlardan bir cümle kurmayı dene. Çoğu kişinin aklına ilk gelen şuna benzer:</p>
+      <div class="pair">
+        <div><span class="lb">Yanlış</span><span class="wrong">I every morning coffee drink.</span></div>
+        <div><span class="lb">Doğru</span><span class="right">I drink coffee every morning.</span></div>
+      </div>
+      <p>Hiçbir kelime değişmedi, sadece yerleri değişti. Birinci cümle, İngilizce kelimelerle kurulmuş bir Türkçe cümle. Bu yazının konusu tam olarak bu: kelimelerin yeri.</p>
+
+      <h2>Ayna gibi iki dil</h2>
+      <p>Türkçede önce kimin yaptığını, sonra neyi, en sona da ne yaptığını söyleriz: <em>Ben elma yerim.</em> Buna kısaca SOV denir: özne, nesne, fiil. İngilizce ise fiili hemen ikinci sıraya koyar: <em>I eat apples.</em> Buna da SVO denir.</p>
+<div class="tr-en">
+  <div class="row"><span class="lg">TR</span><span class="s">Ben</span> <span>elma</span> <span class="v">yerim.</span></div>
+  <div class="row"><span class="lg">EN</span><span class="s">I</span> <span class="v">eat</span> <span>apples.</span></div>
+</div>
+      <p>Aradaki tek fark fiilin yeri ve bu tek fark bütün cümlenin hissini değiştiriyor. Türkçe fiili cümlenin sonuna saklar, yani asıl haber en son gelir. İngilizcede ise asıl haber en başta söylenir: <strong>I went to the restaurant...</strong> İkinci kelimede ne olduğunu biliyorsun, geri kalanı sadece detay.</p>
+      <p>Bu yüzden İngilizce konuşurken düşünme sıran da değişmeli. Önce “kim, ne yapıyor?” sorusunu cevapla, detayları sonra ekle.</p>
+
+      <div class="note">Türkçe: Kim + Neyi + Ne yapıyor.<br>İngilizce: Kim + Ne yapıyor + Neyi.</div>
+
+      <p>Bu arada Türkçe garip bir dil değil. Japonca, Korece, Farsça ve Hintçe de fiili sona koyar. İngilizce, İspanyolca, Fransızca ve Çince ise SVO kullanır. Yani mesele bir dilin doğru, ötekinin ters olması değil. İki dil sadece cümleye farklı yerden başlıyor.</p>
+
+      <h2>Sıra neden bu kadar önemli?</h2>
+      <p>Türkçede <em>“Köpek adamı ısırdı”</em> ile <em>“Adamı köpek ısırdı”</em> aynı şeyi anlatır. Çünkü “adamı” kelimesindeki -ı eki kimin ısırıldığını zaten söylüyor. Ek kelimeye yapıştığı sürece kelime cümlede nereye giderse gitsin görevi belli.</p>
+      <p>İngilizcede ise “man” kelimesinin üzerinde görevini gösteren bir ek yok. Kimin ısırdığını tek bir şey belirliyor: kelimenin cümledeki yeri.</p>
+<div class="tr-en">
+  <div class="row"><span class="lg">EN</span><span class="s">The dog</span> <span class="v">bit</span> <span>the man.</span></div>
+  <div class="row"><span class="lg">EN</span><span class="s">The man</span> <span class="v">bit</span> <span>the dog.</span></div>
+</div>
+      <p>Aynı kelimeler, sadece yerleri değişti ve anlam tamamen tersine döndü. Fiilden önceki yapan, fiilden sonraki etkilenen. İngilizce bir zamanlar Türkçe gibi eklerle çalışıyordu. Zamanla bu ekler aşınıp düştü ve kimin ne yaptığını gösterme işi sıraya kaldı. Bugün İngilizcenin bu kadar katı bir dizilişi olmasının sebebi bu.</p>
+      <p>Bu aslında iyi haber. Türkçede aynı cümleyi beş farklı sırayla kurabilirsin, İngilizcede çoğu zaman tek bir doğru sıra var. Yani öğrenmen gereken tek bir kalıp ve o kalıp neredeyse her cümlede işliyor.</p>
+
+      <h2>Fiilsiz cümle olmaz: be fiili</h2>
+      <p>Türkçede “Ben öğretmenim”, “O yorgun”, “Hava güzel” diyoruz ve ayrı bir fiil yok. “Öğretmenim” kelimesindeki -im eki işi görüyor, “yorgun” ise hiç ek almadan cümleyi tamamlıyor.</p>
+      <p>İngilizcede bu mümkün değil. Her cümlenin mutlaka bir fiili olmak zorunda. Ortada bir eylem olmasa bile boşluğu doldurmak için özel bir fiil kullanılır: <strong>to be</strong>. Şimdiki zamanda üç hali var:</p>
+      <ul>
+        <li><strong>I</strong> → am</li>
+        <li><strong>He, she, it</strong> → is</li>
+        <li><strong>You, we, they</strong> → are</li>
+      </ul>
+<div class="tr-en">
+  <div class="row"><span class="lg">TR</span><span class="s">Ben</span> <span>yorgun</span> <span class="v">-um.</span></div>
+  <div class="row"><span class="lg">EN</span><span class="s">I</span> <span class="v">am</span> <span>tired.</span></div>
+</div>
+      <p>En sık yapılan iki hata birbirinin tersi. Birincisi “be” fiilini unutmak, ikincisi zaten gerçek bir fiil varken gereksiz yere “be” eklemek:</p>
+      <div class="pair">
+        <div><span class="lb">Yanlış</span><span class="wrong">I tired.</span></div>
+        <div><span class="lb">Doğru</span><span class="right">I am tired.</span></div>
+      </div>
+      <div class="pair">
+        <div><span class="lb">Yanlış</span><span class="wrong">I am go to school.</span></div>
+        <div><span class="lb">Doğru</span><span class="right">I go to school.</span></div>
+      </div>
+      <p>Kural basit: cümlede go, eat, like, agree gibi gerçek bir eylem fiili varsa “be”ye ihtiyacın yok. Eylem yoksa, yani bir durumu, bir özelliği ya da bir yeri anlatıyorsan, “be” şart.</p>
+
+      <h2>Özne asla kaybolmaz</h2>
+      <p>Türkçede <em>“Geliyorum”</em> deriz, “ben”i söylemeye gerek yok çünkü fiilin sonundaki -um eki bunu zaten söylüyor. İngilizcede fiil kimin yaptığını göstermez. “Come” ben gelsem de, sen gelsen de aynı kalır. Bu yüzden özne her zaman cümlede bulunmak zorundadır:</p>
+      <ul>
+        <li>Geliyorum. → <strong>I am coming.</strong></li>
+        <li>Seni seviyorum. → <strong>I love you.</strong></li>
+        <li>Bilmiyorum. → <strong>I don’t know.</strong></li>
+      </ul>
+      <p>Peki ortada gerçekten bir özne yoksa? “Yağmur yağıyor”, “Geç oldu” dediğimizde kimin yaptığını sormayız bile. İngilizce bu boşluğa dayanamaz ve oraya anlamı olmayan bir özne yerleştirir: <strong>it</strong>. Bir şeyin varlığını söylerken de kendine bir başlangıç kelimesi bulur: <strong>there</strong>.</p>
+      <ul>
+        <li>Yağmur yağıyor. → <strong>It is raining.</strong></li>
+        <li>Geç oldu. → <strong>It is late.</strong></li>
+        <li>Masada bir kitap var. → <strong>There is a book on the table.</strong></li>
+      </ul>
+
+      <h2>Ekler kelimeye dönüşür</h2>
+      <p>Türkçe ile İngilizce arasındaki belki de en büyük fark bu: Türkçe anlamı kelimenin sonuna eklediği eklerle kurar, İngilizce ise ayrı kelimelerle. <em>Evimden</em> tek bir kelime ama içinde üç bilgi var: ev, -im (benim), -den. İngilizcede bu üç bilgi üç ayrı kelime olur ve sıra tamamen tersine döner:</p>
+<div class="tr-en">
+  <div class="row"><span class="lg">TR</span><span class="s">ev</span> <span class="t">+</span> <span class="v">-im</span> <span class="t">+</span> <span class="v">-den</span></div>
+  <div class="row"><span class="lg">EN</span><span class="v">from</span> <span class="t">+</span> <span class="v">my</span> <span class="t">+</span> <span class="s">house</span></div>
+</div>
+      <p>Türkçede en sonda olan ek, İngilizcede en başa geçiyor. Yine ayna. Bu yüzden tek bir Türkçe kelime bazen koca bir İngilizce cümleye karşılık gelir: <em>“Gelemeyebilirim”</em> → <strong>I may not be able to come.</strong> Bu bir zorluk değil, bilginin paketlenme şekli farklı.</p>
+      <ul>
+        <li>okulda → <strong>at school</strong></li>
+        <li>arkadaşımla → <strong>with my friend</strong></li>
+        <li>annemin evinde → <strong>at my mother’s house</strong></li>
+        <li>okuldan → <strong>from school</strong></li>
+      </ul>
+
+      <h2>İyi haber: aynı kalanlar</h2>
+      <p>Bu kadar ters giden şeyden sonra biraz rahatlayalım. Bazı yerlerde iki dil tamamen aynı sırayı kullanır. Sıfat ismin önünde durur: <em>kırmızı araba</em>, <strong>red car</strong>. İsim tamlaması da aynı: <em>annemin arabası</em>, <strong>my mother’s car</strong>. Fransızca ve İspanyolca gibi diller sıfatı çoğu zaman ismin arkasına koyar, yani bu konuda Türkçe konuşanlar şanslı.</p>
+      <p>Sadece Türkçede olmayan küçük kelimelere dikkat: <strong>a, an, the</strong>. “Araba aldım” derken kaç araba olduğunu belirtmeyiz, İngilizcede ise tek bir şeyden bahsederken ismin önüne çoğu zaman a gelir: <strong>I bought a car.</strong> Başlangıçta bunları unutman çok normal, unutsan bile çoğu zaman anlaşılırsın.</p>
+
+      <h2>Soru ve olumsuz cümle</h2>
+      <p>Türkçede bir cümleyi soruya çevirmek çok kolay: sonuna “mı” eklersin ve kelimelerin sırası değişmez. İngilizcede ise soru cümlenin başında belli olur. Bunun için yardımcı fiil öznenin önüne geçer.</p>
+<div class="tr-en">
+  <div class="row"><span class="lg">TR</span><span class="s">Sen</span> <span>yorgun</span> <span class="v">musun?</span></div>
+  <div class="row"><span class="lg">EN</span><span class="v">Are</span> <span class="s">you</span> <span>tired?</span></div>
+</div>
+      <p>Cümlede “be” yoksa, <em>“You like coffee”</em> gibi bir cümleyi soru yapmak için İngilizce boş bir yardımcı kelimeye başvurur: <strong>do</strong> (he, she, it için <strong>does</strong>). Bu “do”nun cümlede hiçbir anlamı yok, tek görevi “bu bir soru” demek.</p>
+      <ul>
+        <li>You like coffee. → <strong>Do you like coffee?</strong></li>
+        <li>He works here. → <strong>Does he work here?</strong></li>
+        <li>Nerede yaşıyorsun? → <strong>Where do you live?</strong></li>
+      </ul>
+      <p>Olumsuzlukta da aynı yardımcı devreye girer ve olumsuzluk ayrı bir kelime olur: <strong>not</strong>. Yeri bellidir: yardımcı fiilin hemen arkası.</p>
+<div class="tr-en">
+  <div class="row"><span class="lg">TR</span><span class="s">Ben</span> <span>kahve</span> <span class="v">sevmem.</span></div>
+  <div class="row"><span class="lg">EN</span><span class="s">I</span> <span class="v">don’t like</span> <span>coffee.</span></div>
+</div>
+      <p>En yaygın hata, “not”u doğrudan fiilin önüne koymak. Türkçede olumsuzluk eki fiile yapıştığı için bunu doğal sanıyoruz:</p>
+      <div class="pair">
+        <div><span class="lb">Yanlış</span><span class="wrong">I not like coffee.</span></div>
+        <div><span class="lb">Doğru</span><span class="right">I don’t like coffee.</span></div>
+      </div>
+
+      <h2>Yer ve zaman en sona</h2>
+      <p>Türkçede zaman ve yer bilgisini genellikle cümlenin başına ya da ortasına koyarız: <em>“Yarın okulda Ali ile buluşacağım.”</em> İngilizcede önce iskelet kurulur, yer ve zaman bu iskeletin arkasına eklenir. Hem yer hem zaman varsa önce yer, sonra zaman gelir.</p>
+<div class="tr-en">
+  <div class="row"><span class="lg">TR</span><span class="t">Yarın</span> <span class="t">okulda</span> <span>Ali ile</span> <span class="v">buluşacağım.</span></div>
+  <div class="row"><span class="lg">EN</span><span class="s">I</span> <span class="v">will meet</span> <span>Ali</span> <span class="t">at school</span> <span class="t">tomorrow.</span></div>
+</div>
+      <p>“Always, never, usually” gibi sıklık kelimeleri bu kuralın küçük bir istisnası. Bunlar sona gitmez, öznenin hemen arkasına, ana fiilin önüne gelir: <strong>I always drink coffee in the morning.</strong> Tek fark “be” fiilinde, orada sıklık kelimesi fiilin arkasına geçer: <strong>He is always late.</strong></p>
+
+      <h2>Cümle kurma tarifi</h2>
+      <p>Bütün bunları tek bir tarifte birleştirelim. Kafanda Türkçe bir cümle var ve onu İngilizceye taşımak istiyorsun. Kelime kelime çevirmek yerine şu beş adımı izle:</p>
+      <ol>
+        <li><strong>Fiili bul.</strong> Eylem yoksa, fiilin am, is ya da are olacak.</li>
+        <li><strong>Kimin yaptığını bul ve en başa koy.</strong> Özne yoksa it ya da there kullan.</li>
+        <li><strong>Fiili öznenin hemen arkasına koy.</strong> Soru ya da olumsuz cümleyse yardımcı fiili unutma.</li>
+        <li><strong>Fiilden etkilenen kişiyi ya da şeyi ekle.</strong></li>
+        <li><strong>Yer ve zamanı en sona bırak.</strong> Önce yer, sonra zaman.</li>
+      </ol>
+      <p>Bir örnek: <em>“Annem her sabah mutfakta çay yapar.”</em></p>
+      <table>
+        <thead><tr><th>Adım</th><th>Türkçe → İngilizce</th></tr></thead>
+        <tbody>
+          <tr><td>Fiil</td><td>yapar → makes</td></tr>
+          <tr><td>Kim</td><td>annem → My mother</td></tr>
+          <tr><td>Neyi</td><td>çay → tea</td></tr>
+          <tr><td>Nerede</td><td>mutfakta → in the kitchen</td></tr>
+          <tr><td>Ne zaman</td><td>her sabah → every morning</td></tr>
+        </tbody>
+      </table>
+      <div class="note"><strong>My mother makes tea in the kitchen every morning.</strong></div>
+
+      <h2>Kendini dene</h2>
+      <p>Tarifi kendin uygula ve bu cümleleri İngilizceye taşı:</p>
+      <ol>
+        <li>Kız kardeşim her gün parkta koşar.</li>
+        <li>Yarın sabah annemi arayacağım.</li>
+        <li>Ofiste bir sorun var mı?</li>
+      </ol>
+      <p>Cevapları e-kitabın içinde bulabilirsin.</p>
+
+      <h2>Son olarak</h2>
+      <p>Bunların hiçbirini ezberlemek zorunda değilsin. Mantığı bir kez oturduğunda kulağın yanlış dizilmiş bir cümleyi kendiliğinden yadırgamaya başlayacak. Bunu hızlandırmanın tek yolu da çok sayıda cümle kurmak. Bugün sadece bir şey dene: günün beş cümlesini “kim, ne yapıyor, neyi” sırasıyla İngilizce yaz.</p>
+
+      <div class="ebook">
+        <div class="k">Ücretsiz e-kitap</div>
+        <h3>Cümleni Kur</h3>
+        <p>Bu yazıdaki her şeyi bölüm bölüm, alıştırmaları ve cevaplarıyla, yedi günlük mini bir meydan okumayla birlikte topladım. E-postanı bırak, hemen indirmen için açılsın.</p>
+        <div style="position:relative;background:#F4F3FB;border-radius:8px;padding:8px 14px">
+          <iframe data-tally-src="https://tally.so/embed/Gx2KGp?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="296" frameborder="0" marginheight="0" marginwidth="0" title="Cümleni Kur - Ücretsiz E-kitap"></iframe>
+        </div>
+      </div>
+      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+
+    </div>
+  </section>
+
+  <section style="padding:0 0 90px">
+    <div class="container" style="max-width:720px;display:flex;gap:16px;flex-wrap:wrap">
+      <a class="btn btn-primary" href="index.html#randevu">Birlikte çalışalım: Tanışalım</a>
+      <a class="btn btn-ghost" href="index.html#blog">← Diğer yazılar</a>
+    </div>
+  </section>
+</article>
+
+<footer>
+  <div class="container foot-inner">
+    <a class="brand" href="index.html">
+      <svg class="icon" width="28" height="33" viewBox="0 0 96 110"><polygon points="0,110 0,0 58,0 96,55 58,110" fill="#EEEDF8"/><polygon points="0,0 58,0 96,55" fill="#6663B8"/></svg>
+      <span class="wm"><b>Dicle</b><span>ENGLISH</span></span>
+    </a>
+    <nav class="fnav">
+      <a href="index.html#about">Hakkında</a>
+      <a href="index.html#dersler">Nasıl Çalışıyoruz</a>
+      <a href="index.html#randevu">Tanışalım</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#follow">İletişim &amp; Topluluk</a>
+      <a href="gizlilik.html">Gizlilik &amp; KVKK</a>
+    </nav>
+  </div>
+  <div class="container"><div class="copy">© 2026 Dicle English · learn · practice · speak</div></div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach((e)=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*0.07)+'s';io.observe(el);});
+</script>
+</body>
+</html>
